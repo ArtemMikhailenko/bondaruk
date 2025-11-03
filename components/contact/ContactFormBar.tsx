@@ -1,0 +1,91 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { useLocale } from "@/lib/context/LocaleContext";
+
+export function ContactFormBar() {
+  const { t } = useLocale();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // TODO: hook to API or send to email service
+    console.log({ name, phone });
+  }
+
+  return (
+    <section className="pb-20">
+      <div className="site-container">
+  <div className="relative rounded-[40px] bg-white overflow-hidden panel-shadow min-h-[199px] flex items-center">
+
+          {/* decorative left image */}
+          <div className="pointer-events-none absolute left-0 bottom-0 h-[172px] w-[84px] hidden sm:block">
+            <Image src="/images/contact-bar.png" alt="" fill className="object-cover" />
+          </div>
+
+          <form onSubmit={onSubmit} className="relative flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-6 px-6 sm:px-8 lg:px-12 py-6 lg:py-8 w-full">
+            {/* title */}
+            <div className="flex-1 min-w-[240px] lg:min-w-0">
+              <p className="text-[18px] sm:text-[20px] lg:text-[24px] leading-tight">
+                {(() => {
+                  const phrases = ['безкоштовно!', 'бесплатно!', 'for free!'];
+                  const phrase = phrases.find((p) => t.form.title.includes(p));
+                  if (!phrase) return t.form.title;
+                  const [before] = t.form.title.split(phrase);
+                  return (
+                    <>
+                      {before}
+                      <span className="text-gradient-green">{phrase}</span>
+                    </>
+                  );
+                })()}
+              </p>
+            </div>
+
+            {/* phone */}
+            <div className="flex-none w-full sm:w-[260px] lg:w-[280px]">
+              <label htmlFor="cf-phone" className="sr-only">
+                {t.form.phonePlaceholder}
+              </label>
+              <input
+                id="cf-phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder={t.form.phonePlaceholder}
+                className="w-full h-[54px] lg:h-[62px] rounded-[55px] border border-black/60 px-6 text-[16px] lg:text-[18px] placeholder:text-[#141414]/70 outline-none"
+              />
+            </div>
+
+            {/* name */}
+            <div className="flex-none w-full sm:w-[260px] lg:w-[280px]">
+              <label htmlFor="cf-name" className="sr-only">
+                {t.form.namePlaceholder}
+              </label>
+              <input
+                id="cf-name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={t.form.namePlaceholder}
+                className="w-full h-[54px] lg:h-[62px] rounded-[55px] border border-black/60 px-6 text-[16px] lg:text-[18px] placeholder:text-[#141414]/70 outline-none"
+              />
+            </div>
+
+            {/* submit */}
+            <div className="flex-none w-full sm:w-auto">
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-8 lg:px-12 h-[54px] lg:h-[62px] rounded-[55px] bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] text-[#1D1918] font-bold text-[16px] lg:text-[18px] whitespace-nowrap"
+              >
+                {t.form.submit}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

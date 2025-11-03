@@ -1,0 +1,25 @@
+<svg width="389" height="212" viewBox="0 0 389 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient fill under curve -->
+  <defs>
+    <linearGradient id="graphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE17D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FCC71C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Gradient area -->
+  <path d="M 0 212 L 0 167 Q 50 155, 85 105 T 187 75 T 281 54 L 389 54 L 389 212 Z" fill="url(#graphGradient)"/>
+  
+  <!-- White curve line -->
+  <path d="M 0 167 Q 50 155, 85 105 T 187 75 T 281 54 L 389 40" 
+        stroke="#FFFFFF" 
+        stroke-width="3" 
+        fill="none"
+        stroke-linecap="round"/>
+  
+  <!-- Data points (white circles) -->
+  <circle cx="24" cy="167" r="4" fill="#FFFFFF"/>
+  <circle cx="85" cy="105" r="4" fill="#FFFFFF"/>
+  <circle cx="187" cy="75" r="4" fill="#FFFFFF"/>
+  <circle cx="281" cy="54" r="4" fill="#FFFFFF"/>
+</svg>
