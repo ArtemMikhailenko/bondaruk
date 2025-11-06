@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 import { useLocale } from '@/lib/context/LocaleContext';
+import { useModal } from '@/lib/context/ModalContext';
 
 export function Footer() {
   const { t } = useLocale();
+  const { openConsultation } = useModal();
 
   return (
     <footer className="relative bg-[#1D1918] text-white min-h-[906px] md:min-h-[489px] py-10 md:py-8 2xl:py-0 2xl:h-[489px]">
@@ -53,14 +55,14 @@ export function Footer() {
               className="md:w-[209px] md:h-[59px]"
             />
 
-            <a href="#" className="mt-[33px] md:mt-[33px] flex items-center gap-5 w-full max-w-[298px] md:max-w-[371px] h-[52px] md:h-[62px] bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] rounded-[55px] pl-2 pr-4 md:pr-6 py-2 hover:opacity-90 transition-opacity">
+            <button type="button" onClick={openConsultation} className="mt-[33px] md:mt-[33px] flex items-center gap-5 w-full max-w-[298px] md:max-w-[371px] h-[52px] md:h-[62px] bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] rounded-[55px] pl-2 pr-4 md:pr-6 py-2 hover:opacity-90 transition-opacity">
               <div className="w-[36px] h-[36px] md:w-[46px] md:h-[46px] bg-[#1D1918] rounded-full flex items-center justify-center">
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" className="md:w-[24px] md:h-[24px]">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#FFD02B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <span className="text-[14px] leading-6 font-extrabold text-[#1D1918] whitespace-nowrap">{t.footer.cta}</span>
-            </a>
+            </button>
           </div>
 
           {/* Two column menu on mobile */}

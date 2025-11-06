@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useLocale } from "@/lib/context/LocaleContext";
+import { useModal } from "@/lib/context/ModalContext";
 
 export function Hero() {
   const { t } = useLocale();
+  const { openConsultation } = useModal();
 
   return (
     <section className="relative w-full pt-6 md:pt-8 lg:pt-0 overflow-hidden">
@@ -43,8 +45,9 @@ export function Hero() {
               {t.hero.descriptionPart1} <span className="font-bold text-gradient-green">Bondaruk Partners</span> {t.hero.descriptionPart2} <span className="font-bold text-[#1d1918]">{t.hero.descriptionBold}</span>
             </p>
 
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={openConsultation}
               className="group mt-6 md:mt-7 lg:mt-8 inline-flex items-center justify-center gap-5 rounded-[55px] bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] pl-8 pr-2 py-2 h-[62px]">
               <span className="text-[18px] leading-[24px] font-bold text-[#1d1918] text-center">
                 {t.hero.cta}
@@ -67,7 +70,7 @@ export function Hero() {
                   />
                 </svg>
               </span>
-            </a>
+            </button>
           </div>
 
           {/* Right: photo + overlays */}

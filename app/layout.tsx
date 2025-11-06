@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/context/LocaleContext";
+import { ModalProvider } from "@/lib/context/ModalContext";
+import ConsultationModal from "@/components/modal/ConsultationModal";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,7 +31,11 @@ export default function RootLayout({
     <html lang="uk">
       <body className={`${montserrat.variable} ${inter.variable} font-sans antialiased`}>
         <LocaleProvider>
-          {children}
+          <ModalProvider>
+            {children}
+            {/* modal root */}
+            <ConsultationModal />
+          </ModalProvider>
         </LocaleProvider>
       </body>
     </html>

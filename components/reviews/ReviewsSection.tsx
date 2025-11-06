@@ -3,6 +3,7 @@
 import { useLocale } from "@/lib/context/LocaleContext";
 import Image from "next/image";
 import { useState } from "react";
+import { useModal } from "@/lib/context/ModalContext";
 
 function GradientDot() {
   return (
@@ -46,6 +47,7 @@ interface Review {
 export function ReviewsSection() {
   const { t } = useLocale();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { openConsultation } = useModal();
 
   const reviews: Review[] = t.reviews.items.map((item, index) => ({
     id: index + 1,
@@ -86,7 +88,7 @@ export function ReviewsSection() {
             </p>
 
             {/* CTA Button */}
-            <button className="inline-flex items-center justify-center gap-4 md:gap-5 pl-6 md:pl-8 pr-2 py-2 rounded-[55px] bg-gradient-to-br from-[#FFD02B] to-[#F7B91E] hover:shadow-lg transition-shadow">
+            <button onClick={openConsultation} className="inline-flex items-center justify-center gap-4 md:gap-5 pl-6 md:pl-8 pr-2 py-2 rounded-[55px] bg-gradient-to-br from-[#FFD02B] to-[#F7B91E] hover:shadow-lg transition-shadow">
               <span className="text-[16px] md:text-[18px] leading-6 font-bold text-[#1D1918]">
                 {t.reviews.cta}
               </span>
