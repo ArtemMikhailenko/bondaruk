@@ -105,10 +105,10 @@ export function ReputationSection() {
           >
             <div className="relative z-10">
               <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-4 lg:mb-[23px]">
-                {t.reputation.cardTitle1} <span className="inline-flex items-center justify-center bg-white rounded-[23px] lg:rounded-[39px] px-2 lg:px-[9px] h-[28px] lg:h-[47px] text-[18px] lg:text-[32px] leading-[18px] lg:leading-[32px] font-bold align-middle mx-1">{t.reputation.cardTimes}</span> {t.reputation.cardTitle2}
+                {t.reputation.cardTitle1} <span className="inline-flex items-center justify-center bg-white rounded-[23px] lg:rounded-[39px] px-2 lg:px-[15px] h-[28px] lg:h-[47px] text-[18px] lg:text-[32px] leading-[18px] lg:leading-[32px] font-bold align-middle mx-1">{t.reputation.cardTimes}</span> {t.reputation.cardTitle2}
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-[285px] lg:max-w-none">
-                {t.reputation.cardSubtitle}
+                {t.reputation.cardSubtitleStart} <span className="font-semibold">{t.reputation.cardSubtitleBold}</span>
               </p>
             </div>
             {/* Graph - positioned absolutely on the right */}
@@ -131,7 +131,7 @@ export function ReputationSection() {
                 {t.reputation.benefitsTitle}
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-full lg:max-w-[397px]">
-                {t.reputation.benefitsText1} <span className="font-semibold text-[#FCC71C]">{t.reputation.percent}</span> {t.reputation.benefitsText2}
+                {t.reputation.benefitsText1} <span className="font-semibold text-[#FCC71C]">{t.reputation.percent}</span> <span className="font-semibold">{t.reputation.benefitsText2}</span>
               </p>
             </div>
             <div className="lg:flex-shrink-0">

@@ -12,7 +12,7 @@ export function AwardsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left card - Запрошений експерт */}
           <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px]">
-            <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-6 md:mb-12 lg:mb-[60px]">
+            <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-4 md:mb-8 lg:mb-10">
               {t.awards.expertTitle}
             </h3>
             
@@ -28,7 +28,7 @@ export function AwardsSection() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.prokydaysya}
                 </p>
               </div>
@@ -44,7 +44,7 @@ export function AwardsSection() {
                     className="object-contain w-[90%] h-[90%]"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.rbc}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export function AwardsSection() {
                     className="object-contain w-[90%] h-[90%]"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.kyiv98}
                 </p>
               </div>
@@ -69,7 +69,7 @@ export function AwardsSection() {
 
           {/* Right card - Професійні нагороди */}
           <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px]">
-            <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-6 md:mb-12 lg:mb-[60px]">
+            <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-4 md:mb-8 lg:mb-10">
               {t.awards.awardsTitle}
             </h3>
             
@@ -85,7 +85,7 @@ export function AwardsSection() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.silver}
                 </p>
               </div>
@@ -101,7 +101,7 @@ export function AwardsSection() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.gold}
                 </p>
               </div>
@@ -117,7 +117,7 @@ export function AwardsSection() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center w-auto md:w-[159px]">
+                <p className="text-[12px] md:text-base lg:text-lg leading-[12px] md:leading-[26px] font-medium text-[#181818] text-center whitespace-nowrap">
                   {t.awards.platinum}
                 </p>
               </div>

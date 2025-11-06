@@ -120,7 +120,7 @@ export function AboutSection() {
       <div className="site-container">
         <div className="grid lg:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start">
           {/* Left column - Tag, Title, Text */}
-          <div className="max-w-full lg:max-w-[680px]">
+          <div className="max-w-full lg:max-w-[760px] xl:max-w-[900px]">
             {/* Tag */}
             <div className="inline-flex items-center gap-2.5 rounded-full bg-[#EFF8F3] px-[18px] py-1 h-9 mb-4 md:mb-[26px]">
               <span className="inline-block h-2 w-2 rounded-full bg-gradient-to-b from-[#31AA5A] to-[#258A49]" />
@@ -130,12 +130,21 @@ export function AboutSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[36px] leading-[42px] md:text-[50px] md:leading-[56px] lg:text-[60px] lg:leading-[68px] xl:text-[70px] xl:leading-[78px] font-medium mb-4 md:mb-6 lg:mb-[25px]">
+            <h2 className="text-[36px] leading-[42px] md:text-[50px] md:leading-[56px] lg:text-[60px] lg:leading-[68px] xl:text-[70px] xl:leading-[78px] font-medium mb-4 md:mb-6 lg:mb-[25px] lg:whitespace-nowrap">
               {t.about.title}
             </h2>
 
             <p className="text-[16px] leading-[24px] md:text-[18px] md:leading-[26px] mb-[7px]">
-              {t.about.paragraph1}
+              {/* Formatted paragraph with highlights as per design */}
+              <span className="font-semibold">{t.about.rich1.leadBold}</span>
+              {t.about.rich1.leadRest}
+              {t.about.rich1.i}
+              <span className="font-semibold">{t.about.rich1.name}</span>
+              {t.about.rich1.roleBefore}
+              <span className="font-semibold text-gradient-green">{t.about.rich1.brand}</span>
+              {t.about.rich1.roleAfter}
+              {t.about.rich1.helpStart}
+              <span className="font-semibold">{t.about.rich1.helpBold}</span>
             </p>
             <p className="text-[16px] leading-[24px] md:text-[18px] md:leading-[26px] font-light">
               {t.about.paragraph2}

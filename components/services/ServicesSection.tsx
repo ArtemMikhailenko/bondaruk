@@ -17,9 +17,11 @@ function GradientDot() {
 }
 
 function ArrowIcon() {
+  // Right arrow with tail
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4 12h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M12 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -49,7 +51,7 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
       </div>
 
       {/* Bottom overlay with blur */}
-      <div className="absolute left-2 right-2 bottom-2 md:left-3 md:right-3 md:bottom-3 h-[90px] md:h-[100px] lg:h-[109px] rounded-2xl service-card-overlay flex items-center justify-between px-4 md:px-5 lg:px-6 pointer-events-none">
+  <div className="absolute left-2 right-2 bottom-2 md:left-3 md:right-3 md:bottom-3 h-[90px] md:h-[100px] lg:h-[109px] rounded-2xl service-card-overlay backdrop-blur-[5px] bg-[#1D1918]/70 flex items-center justify-between px-4 md:px-5 lg:px-6 pointer-events-none">
         {/* Text */}
         <div className="flex flex-col gap-[3px]">
           <div className="text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-tight font-semibold">
@@ -62,7 +64,8 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
 
         {/* Arrow button */}
         <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full bg-[#FCC71C] flex items-center justify-center text-[#1D1918] group-hover:bg-[#fdd54d] transition-colors">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+          {/* Card arrow: original corner-arrow (24x24) */}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
@@ -126,8 +129,9 @@ export function ServicesSection() {
               }`}
               aria-label="Previous"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="16" height="21" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+                <path d="M20 12H8" stroke="#1D1918" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M12 6l-6 6 6 6" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
             <button
@@ -138,8 +142,9 @@ export function ServicesSection() {
               }`}
               aria-label="Next"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="16" height="21" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+                <path d="M4 12h12" stroke="#1D1918" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M12 6l6 6-6 6" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           </div>

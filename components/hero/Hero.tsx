@@ -7,22 +7,22 @@ export function Hero() {
   const { t } = useLocale();
 
   return (
-    <section className="relative w-full pt-6 md:pt-8 lg:pt-10 overflow-hidden">
+    <section className="relative w-full pt-6 md:pt-8 lg:pt-0 overflow-hidden">
       {/* Background image - covers full height and extends beyond left container */}
-      <div className="pointer-events-none absolute inset-0 -left-32 lg:right-1/2 hidden lg:block">
+      <div className="pointer-events-none absolute inset-0 -left-0 lg:right-1/2 hidden lg:block overflow-hidden">
         <Image
           src="/images/hero-bg.png"
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 60vw"
-          className="object-cover object-left"
+          className="object-cover object-left rounded-bl-[180px]"
           priority
         />
         {/* Gradient overlay for smooth fade on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white rounded-bl-[60px]" /> */}
       </div>
 
-      <div className="site-container pt-4 md:pt-6 lg:pt-8 xl:pt-12 relative z-10">
+      <div className="site-container pt-4 md:pt-6 lg:pt-8 xl:pt-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-start">
           {/* Left: content */}
           <div className="relative order-1 lg:order-1 pb-6 md:pb-8 lg:pb-0 self-center lg:self-center">
@@ -33,32 +33,34 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-medium text-[36px] sm:text-[44px] md:text-[52px] lg:text-[60px] xl:text-[72px] leading-[1.05] text-[#1d1918]">
-              {t.hero.name} <span className="text-gradient-green">{t.hero.role}</span>
+            <h1 className="font-medium text-[36px] sm:text-[40px] md:text-[48px] lg:text-[50px] xl:text-[60px] 2xl:text-[64px] leading-[1.05] text-[#1d1918] whitespace-nowrap">
+              {t.hero.name}
+              <br />
+              <span className="text-gradient-green whitespace-nowrap">{t.hero.role}</span>
             </h1>
 
             <p className="mt-4 md:mt-5 lg:mt-6 max-w-[592px] text-[16px] md:text-[18px] lg:text-[20px] leading-[24px] md:leading-[26px] lg:leading-[28px] text-[#1d1918]/80">
-              {t.hero.description}
+              {t.hero.descriptionPart1} <span className="font-bold text-gradient-green">Bondaruk Partners</span> {t.hero.descriptionPart2} <span className="font-bold text-[#1d1918]">{t.hero.descriptionBold}</span>
             </p>
 
             <a
               href="#contact"
-              className="group mt-6 md:mt-7 lg:mt-8 inline-flex items-center gap-4 lg:gap-5 rounded-[55px] bg-gradient-to-r from-[#FFCf2B] to-[#F7B71E] pl-6 lg:pl-8 pr-2 py-2 h-[52px] md:h-[56px] lg:h-[62px]">
-              <span className="text-[16px] lg:text-[18px] font-bold text-[#1d1918]">
+              className="group mt-6 md:mt-7 lg:mt-8 inline-flex items-center justify-center gap-5 rounded-[55px] bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] pl-8 pr-2 py-2 h-[62px]">
+              <span className="text-[18px] leading-[24px] font-bold text-[#1d1918] text-center">
                 {t.hero.cta}
               </span>
-              <span className="mr-1 grid h-[40px] w-[40px] md:h-[42px] md:w-[42px] lg:h-[46px] lg:w-[46px] place-items-center rounded-full bg-[#1d1918]">
+              <span className="grid h-[46px] w-[46px] place-items-center rounded-full bg-[#1d1918]">
                 <svg
-                  width="22"
-                  height="22"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-white transition-transform group-hover:translate-x-0.5"
+                  className="transition-transform group-hover:translate-x-0.5"
                 >
                   <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
+                    d="M4 12h16m0 0l-6-6m6 6l-6 6"
+                    stroke="#FFCF2B"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -82,23 +84,23 @@ export function Hero() {
               />
 
               {/* Floating reviews card */}
-              <div className="absolute right-2 -top-2 sm:right-0 sm:top-0 md:right-2 md:top-2 lg:-left-12 lg:top-auto lg:bottom-10 lg:right-auto w-[122px] h-[120px] sm:w-[160px] sm:h-[155px] md:w-[180px] md:h-[175px] lg:w-[224px] lg:h-[218px] rounded-[13px] md:rounded-[20px] lg:rounded-[24px] bg-white shadow-[0_2.19px_22.69px_rgba(87,87,87,0.05)]">
-                <div className="pt-[14px] md:pt-5 lg:pt-[30.5px]">
-                  <div className="text-[#0E1E28] text-[25px] sm:text-[32px] md:text-[36px] lg:text-[46px] leading-[25px] sm:leading-[1.15] md:leading-[1.15] lg:leading-[52.95px] text-center">{t.hero.reviewsCount}</div>
-                  <div className="mt-[12px] md:mt-[0.5px] text-[9px] md:text-[12px] lg:text-[14px] leading-[12px] md:leading-4 text-[#7F7F7F] text-center mx-auto px-1 md:px-0 md:max-w-[173px]">{t.hero.reviewsCaption}</div>
-                </div>
+              <div className="absolute right-2 -top-2 sm:right-0 sm:top-0 md:right-2 md:top-2 lg:-left-12 lg:top-auto lg:bottom-10 lg:right-auto w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] md:w-[170px] md:h-[165px] lg:w-[200px] lg:h-[195px] rounded-[13px] md:rounded-[18px] lg:rounded-[22px] bg-white shadow-[0_4px_41.5px_rgba(87,87,87,0.05)]">
+                {/* Number */}
+                <div className="text-[#0E1E28] text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] lg:leading-[48px] leading-[1.15] text-center font-normal font-inter absolute lg:top-[24px] top-[12px] md:top-[18px] left-0 right-0">{t.hero.reviewsCount}</div>
+                {/* Caption */}
+                <div className="text-[#7F7F7F] text-[8px] md:text-[11px] lg:text-[13px] lg:leading-[15px] leading-[1.15] text-center absolute lg:top-[78px] top-[42px] md:top-[58px] left-0 right-0 px-2 md:px-3 lg:px-[20px]">{t.hero.reviewsCaption}</div>
                 {/* avatars line */}
-                <div className="absolute left-[21px] md:left-1/2 md:-translate-x-1/2 bottom-[18px] md:bottom-5 lg:bottom-[30.63px] flex -space-x-2">
-                  <div className="h-[22px] w-[22px] md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white overflow-hidden relative">
+                <div className="absolute lg:top-[123px] top-[68px] md:top-[95px] left-1/2 -translate-x-1/2 flex -space-x-2 lg:-space-x-3">
+                  <div className="h-[32px] w-[32px] md:h-[38px] md:w-[38px] lg:h-[44px] lg:w-[44px] rounded-full border-[2.5px] md:border-[3px] border-white overflow-hidden relative bg-gray-200">
                     <Image src="/images/face1.png" alt="" fill className="object-cover" />
                   </div>
-                  <div className="h-[22px] w-[22px] md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white overflow-hidden relative">
+                  <div className="h-[32px] w-[32px] md:h-[38px] md:w-[38px] lg:h-[44px] lg:w-[44px] rounded-full border-[2.5px] md:border-[3px] border-white overflow-hidden relative bg-gray-200">
                     <Image src="/images/face2.png" alt="" fill className="object-cover" />
                   </div>
-                  <div className="h-[22px] w-[22px] md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white overflow-hidden relative">
+                  <div className="h-[32px] w-[32px] md:h-[38px] md:w-[38px] lg:h-[44px] lg:w-[44px] rounded-full border-[2.5px] md:border-[3px] border-white overflow-hidden relative bg-gray-200">
                     <Image src="/images/face3.png" alt="" fill className="object-cover" />
                   </div>
-                  <div className="h-[22px] w-[22px] md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white overflow-hidden relative">
+                  <div className="h-[32px] w-[32px] md:h-[38px] md:w-[38px] lg:h-[44px] lg:w-[44px] rounded-full border-[2.5px] md:border-[3px] border-white overflow-hidden relative bg-gray-200">
                     <Image src="/images/face4.png" alt="" fill className="object-cover" />
                   </div>
                 </div>

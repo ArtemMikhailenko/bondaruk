@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/context/LocaleContext";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
 });
@@ -21,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <body className={`${montserrat.variable} font-sans antialiased`}>
+      <body className={`${montserrat.variable} ${inter.variable} font-sans antialiased`}>
         <LocaleProvider>
           {children}
         </LocaleProvider>

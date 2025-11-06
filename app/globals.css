@@ -76,9 +76,9 @@ body {
 
 /* Services section card overlay with backdrop blur */
 .service-card-overlay {
-  background: rgba(29, 25, 24, 0.75);
-  backdrop-filter: blur(12.2px);
-  -webkit-backdrop-filter: blur(12.2px);
+  background: rgba(29, 25, 24, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 /* Hide scrollbar for slider */

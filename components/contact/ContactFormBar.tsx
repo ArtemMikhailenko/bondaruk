@@ -25,27 +25,21 @@ export function ContactFormBar() {
             <Image src="/images/contact-bar.png" alt="" fill className="object-cover" />
           </div>
 
-          <form onSubmit={onSubmit} className="relative flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-6 px-6 sm:px-8 lg:px-12 py-6 lg:py-8 w-full">
+          <form onSubmit={onSubmit} className="relative flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-2 px-6 sm:px-8 lg:px-12 py-6 lg:py-8 w-full">
             {/* title */}
             <div className="flex-1 min-w-[240px] lg:min-w-0">
-              <p className="text-[18px] sm:text-[20px] lg:text-[24px] leading-tight">
-                {(() => {
-                  const phrases = ['безкоштовно!', 'бесплатно!', 'for free!'];
-                  const phrase = phrases.find((p) => t.form.title.includes(p));
-                  if (!phrase) return t.form.title;
-                  const [before] = t.form.title.split(phrase);
-                  return (
-                    <>
-                      {before}
-                      <span className="text-gradient-green">{phrase}</span>
-                    </>
-                  );
-                })()}
-              </p>
+              <div className="text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.4]">
+                <div className="whitespace-nowrap">
+                  <span className="font-bold text-[#1d1918]">{t.form.titleQuestion}</span>{' '}{t.form.titleWe}
+                </div>
+                <div className="whitespace-nowrap">
+                  {t.form.titleAnswer} <span className="font-bold text-gradient-green">{t.form.titleFree}</span>
+                </div>
+              </div>
             </div>
 
             {/* phone */}
-            <div className="flex-none w-full sm:w-[260px] lg:w-[280px]">
+            <div className="flex-none w-full sm:w-[260px] lg:w-[270px]">
               <label htmlFor="cf-phone" className="sr-only">
                 {t.form.phonePlaceholder}
               </label>
@@ -60,7 +54,7 @@ export function ContactFormBar() {
             </div>
 
             {/* name */}
-            <div className="flex-none w-full sm:w-[260px] lg:w-[280px]">
+            <div className="flex-none w-full sm:w-[260px] lg:w-[270px]">
               <label htmlFor="cf-name" className="sr-only">
                 {t.form.namePlaceholder}
               </label>
@@ -75,10 +69,10 @@ export function ContactFormBar() {
             </div>
 
             {/* submit */}
-            <div className="flex-none w-full sm:w-auto">
+            <div className="flex-none w-full sm:w-auto lg:w-[270px]">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 lg:px-12 h-[54px] lg:h-[62px] rounded-[55px] bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] text-[#1D1918] font-bold text-[16px] lg:text-[18px] whitespace-nowrap"
+                className="w-full h-[54px] lg:h-[62px] rounded-[55px] bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] text-[#1D1918] font-bold text-[16px] lg:text-[18px] whitespace-nowrap"
               >
                 {t.form.submit}
               </button>

@@ -38,7 +38,7 @@ export function FAQSection() {
   return (
     <section className="py-10 md:py-16 lg:py-20 bg-white">
       <div className="site-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+  <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-12 lg:gap-16">
           
           {/* Left column - Header */}
           <div>
@@ -62,20 +62,22 @@ export function FAQSection() {
           </div>
 
           {/* Right column - FAQ List */}
-          <div className="flex flex-col gap-4 md:gap-6">
+          <div className="flex flex-col gap-4 md:gap-5">
             {faqs.map((faq, index) => (
               <div
                 key={faq.id}
                 className={`rounded-[16px] md:rounded-[24px] transition-all ${
                   openIndex === index
                     ? "bg-[#EFF8F3]"
-                    : "bg-white"
+                    : "bg-white border border-[#F0F0F0]"
                 }`}
               >
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-start justify-between gap-3 md:gap-4 p-4 md:p-6 lg:p-8 text-left"
+                  className={`w-full flex ${openIndex === index ? 'items-start' : 'items-center'} justify-between gap-3 md:gap-4 px-4 md:px-6 lg:px-8 text-left ${
+                    openIndex === index ? "py-5 md:py-6 lg:py-7" : "py-4 md:py-5 lg:py-6"
+                  }`}
                 >
                   <div className="flex items-start gap-3 md:gap-4 flex-1">
                     <span className="text-[16px] md:text-[18px] leading-[26px] text-[#181818]/40 font-medium flex-shrink-0">

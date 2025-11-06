@@ -65,14 +65,14 @@ export function ContactSection() {
         {/* Form section */}
         <div className="px-4 md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-[100px] xl:right-[150px] 2xl:right-[240px] max-w-full">
           <div className="bg-white rounded-[24px] shadow-[0_29px_59.2px_rgba(87,87,87,0.08)] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-0 pt-[29px] md:p-8 2xl:p-[60px]">
-            <h2 className="text-[24px] md:text-[28px] 2xl:text-[35px] font-semibold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[36px] 2xl:leading-[43px] px-4 md:px-0">
+            <h2 className="text-[24px] md:text-[28px] 2xl:text-[35px] font-bold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[36px] 2xl:leading-[43px] px-4 md:px-0">
               {t.contactSection.title}
             </h2>
             <p className="text-[14px] md:text-[16px] 2xl:text-[18px] leading-[20px] md:leading-[24px] 2xl:leading-[26px] mb-[24px] md:mb-[30px] px-4 md:px-0">
-              {t.contactSection.subtitle}{' '}
-              <span className="text-[#31AA5A] font-semibold">
-                {t.contactSection.time}
-              </span>
+              {t.contactSection.subtitleStart} {" "}
+              <span className="font-semibold">{t.contactSection.subtitleBold}</span>{" "}
+              {t.contactSection.subtitleBeforeTime} {" "}
+              <span className="text-[#31AA5A] font-semibold">{t.contactSection.time}</span>
             </p>
 
             {/* Form */}
@@ -125,7 +125,7 @@ export function ContactSection() {
                 </svg>
                 <p className="text-[16px] leading-6 font-medium">{t.contact.phone}</p>
               </div>
-              <a href={`tel:${t.contact.phone}`} className="text-[14px] leading-6 font-medium bg-gradient-to-b from-[#31AA5A] to-[#258A49] bg-clip-text text-transparent ml-[38px]">
+              <a href={`tel:${t.contact.phone}`} className="text-[14px] leading-6 font-medium text-[#31AA5A] underline underline-offset-[3px] decoration-[#31AA5A] ml-[38px]">
                 {t.contactSection.callAction}
               </a>
             </div>
@@ -139,7 +139,7 @@ export function ContactSection() {
                 </svg>
                 <p className="text-[16px] leading-6 font-medium">{t.contact.email}</p>
               </div>
-              <a href={`mailto:${t.contact.email}`} className="text-[14px] leading-6 font-medium bg-gradient-to-b from-[#31AA5A] to-[#258A49] bg-clip-text text-transparent ml-[38px]">
+              <a href={`mailto:${t.contact.email}`} className="text-[14px] leading-6 font-medium text-[#31AA5A] underline underline-offset-[3px] decoration-[#31AA5A] ml-[38px]">
                 {t.contactSection.writeAction}
               </a>
             </div>
@@ -207,6 +207,19 @@ export function ContactSection() {
             <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </a>
+      </div>
+
+      {/* Curved soft white haze at the bottom (decorative) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[200px] md:h-[260px] lg:h-[300px] z-[5]">
+        <svg viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
+          <defs>
+            <filter id="soft-blur" x="-20%" y="-50%" width="140%" height="220%">
+              <feGaussianBlur stdDeviation="45" />
+            </filter>
+          </defs>
+          {/* Curved cap shape blurred into white */}
+          <path d="M0 80C240 10 720 10 1440 80V300H0V80Z" fill="white" filter="url(#soft-blur)" />
+        </svg>
       </div>
     </section>
   );

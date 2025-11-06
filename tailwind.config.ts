@@ -19,6 +19,7 @@ export default {
       },
       fontFamily: {
         sans: ['var(--font-montserrat)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-green': 'linear-gradient(180deg, #31AA5A 0%, #258A49 100%)',

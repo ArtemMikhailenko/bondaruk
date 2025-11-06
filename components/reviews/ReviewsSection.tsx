@@ -65,7 +65,7 @@ export function ReviewsSection() {
   return (
     <section className="py-10 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#FCFCFC]">
       <div className="site-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-12 items-center">
           
           {/* Left column - Header and CTA */}
           <div>
@@ -92,7 +92,9 @@ export function ReviewsSection() {
               </span>
               <div className="w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full bg-[#1D1918] flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* Right-pointing arrow with tail, yellow stroke */}
+                  <path d="M5 12H17" stroke="#FFD02B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M11 6l6 6-6 6" stroke="#FFD02B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </button>
@@ -115,9 +117,9 @@ export function ReviewsSection() {
                       isActive
                         ? "z-30 translate-x-0 translate-y-0 scale-100 opacity-100"
                         : isSecond
-                        ? "z-20 translate-x-[20px] md:translate-x-[30px] translate-y-[12px] md:translate-y-[18px] scale-95 opacity-60"
+                        ? "z-20 translate-x-[28px] md:translate-x-[36px] lg:translate-x-[44px] scale-[0.92] opacity-100"
                         : isThird
-                        ? "z-10 translate-x-[40px] md:translate-x-[60px] translate-y-[24px] md:translate-y-[36px] scale-90 opacity-30"
+                        ? "z-10 translate-x-[56px] md:translate-x-[80px] lg:translate-x-[80px] scale-[0.86] opacity-100"
                         : "z-0 opacity-0 pointer-events-none"
                     }`}
                   >
@@ -153,7 +155,7 @@ export function ReviewsSection() {
                           </div>
                           
                           <div>
-                            <p className="text-[14px] md:text-[16px] leading-[20px] md:leading-[23px] font-bold text-[#434343]">
+                            <p className="text-[14px] md:text-[16px] leading-[20px] md:leading-[23px] font-bold text-[#434343] whitespace-nowrap">
                               {review.author}
                             </p>
                             <div className="scale-90 md:scale-100 origin-left">
@@ -193,7 +195,7 @@ export function ReviewsSection() {
 
           <div className="flex flex-row md:flex-row items-center gap-2 md:gap-6">
             {/* Rating Card */}
-            <div className="flex-1 md:w-[280px] lg:w-[319px] h-[61px] md:h-[96px] bg-white border border-[#F0F0F0] rounded-[10px] md:rounded-2xl flex items-center px-3 md:px-5 gap-2 md:gap-4 md:flex-shrink-0">
+            <div className="flex-1 md:w-[280px] lg:w-[319px] max-w-[320px] h-[61px] md:h-[96px] bg-white border border-[#F0F0F0] rounded-[10px] md:rounded-2xl flex items-center px-3 md:px-5 gap-2 md:gap-4 md:flex-shrink-0">
               {/* Google Icon */}
               <div className="w-[30px] h-[30px] md:w-12 md:h-12 flex-shrink-0">
                 <Image
@@ -206,7 +208,7 @@ export function ReviewsSection() {
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] md:text-[16px] leading-[18px] md:leading-[28px] font-bold text-[#434343]">
+                <p className="text-[10px] md:text-[16px] leading-[18px] md:leading-[28px] font-bold text-[#434343] whitespace-nowrap">
                   {t.reviews.ratingLabel}
                 </p>
                 <div className="flex items-center gap-[2px] md:gap-1">
@@ -242,11 +244,13 @@ export function ReviewsSection() {
             <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
               <button
                 onClick={handlePrev}
-                className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full border border-[#1D1918] opacity-25 flex items-center justify-center transition-opacity hover:opacity-100"
+                className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full border border-[#D9D9D9] bg-white flex items-center justify-center transition-colors"
                 aria-label="Previous review"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                  <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* Left arrow with shaft, light gray stroke */}
+                  <path d="M19 12H7" stroke="#BDBDBD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M13 6l-6 6 6 6" stroke="#BDBDBD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               <button
@@ -255,7 +259,9 @@ export function ReviewsSection() {
                 aria-label="Next review"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                  <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* Right arrow with shaft, black stroke */}
+                  <path d="M5 12h12" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M11 6l6 6-6 6" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>
