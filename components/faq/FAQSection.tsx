@@ -38,7 +38,7 @@ export function FAQSection() {
   return (
     <section className="py-10 md:py-16 lg:py-20 bg-white">
       <div className="site-container">
-  <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-12 lg:gap-16">
+  <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] xl:grid-cols-[0.75fr_1.25fr] gap-4 md:gap-6 lg:gap-6">
           
           {/* Left column - Header */}
           <div>

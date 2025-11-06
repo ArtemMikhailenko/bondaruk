@@ -92,3 +92,12 @@ body {
     padding-right: 32px;
   }
 }
+
+/* Widen the container on very large screens (>=1900px) */
+@media (min-width: 1900px) {
+  .site-container {
+    max-width: 1560px; /* was 1320px */
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

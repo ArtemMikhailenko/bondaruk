@@ -8,6 +8,37 @@ export function ContactSection() {
 
   return (
     <section className="relative bg-white overflow-hidden py-0 md:py-0" style={{ minHeight: '700px' }}>
+      {/* Ragged top haze - stronger and more irregular */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[160px] md:h-[220px] lg:h-[260px] z-[5]">
+        <svg viewBox="0 0 1440 260" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
+          <defs>
+            <filter id="ragged-top-blur" x="-20%" y="-50%" width="140%" height="220%">
+              <feGaussianBlur stdDeviation="42" />
+            </filter>
+            {/* Fade downward so the ragged edge dissipates into content */}
+            <linearGradient id="fade-down" x1="0" y1="0" x2="0" y2="260">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="70%" stopColor="white" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+            <mask id="ragged-top-mask">
+              <rect width="1440" height="260" fill="url(#fade-down)" />
+            </mask>
+          </defs>
+          {/* Irregular torn silhouette */}
+          <path
+            d="M0 0 H1440 V110
+               C 1300 80, 1200 150, 1080 95
+               C 970 50, 860 135, 720 90
+               C 600 55, 470 130, 340 85
+               C 220 45, 110 115, 0 80
+               V 0 Z"
+            fill="white"
+            filter="url(#ragged-top-blur)"
+            mask="url(#ragged-top-mask)"
+          />
+        </svg>
+      </div>
       {/* Background image - слева от женщины */}
       <div className="pointer-events-none absolute inset-0 -left-32 right-1/2 hidden md:block">
         <Image
@@ -69,9 +100,10 @@ export function ContactSection() {
               {t.contactSection.title}
             </h2>
             <p className="text-[14px] md:text-[16px] 2xl:text-[18px] leading-[20px] md:leading-[24px] 2xl:leading-[26px] mb-[24px] md:mb-[30px] px-4 md:px-0">
-              {t.contactSection.subtitleStart} {" "}
-              <span className="font-semibold">{t.contactSection.subtitleBold}</span>{" "}
-              {t.contactSection.subtitleBeforeTime} {" "}
+              {t.contactSection.subtitleStart}{" "}
+              <span className="font-bold">{t.contactSection.subtitleBold}</span>
+              <br />
+              <span className="font-bold">{t.contactSection.subtitleBeforeTime}</span>{" "}
               <span className="text-[#31AA5A] font-semibold">{t.contactSection.time}</span>
             </p>
 
@@ -209,16 +241,55 @@ export function ContactSection() {
         </a>
       </div>
 
-      {/* Curved soft white haze at the bottom (decorative) */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[200px] md:h-[260px] lg:h-[300px] z-[5]">
-        <svg viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
+      {/* Ragged white haze at the bottom (custom SVG, more torn) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[240px] md:h-[320px] lg:h-[360px] z-[5]">
+        <svg viewBox="0 0 1440 360" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
           <defs>
-            <filter id="soft-blur" x="-20%" y="-50%" width="140%" height="220%">
-              <feGaussianBlur stdDeviation="45" />
+            {/* Base soft fog */}
+            <filter id="bottom-soft" x="-20%" y="-50%" width="140%" height="220%">
+              <feGaussianBlur stdDeviation="48" />
             </filter>
+            {/* Sharper ragged spikes */}
+            <filter id="bottom-spikes" x="-20%" y="-50%" width="140%" height="220%">
+              <feGaussianBlur stdDeviation="14" />
+            </filter>
+            <linearGradient id="fade-up" x1="0" y1="360" x2="0" y2="0">
+              <stop offset="0%" stopColor="white" stopOpacity="1" />
+              <stop offset="60%" stopColor="white" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+            <mask id="ragged-fade-mask">
+              <rect width="1440" height="360" fill="url(#fade-up)" />
+            </mask>
           </defs>
-          {/* Curved cap shape blurred into white */}
-          <path d="M0 80C240 10 720 10 1440 80V300H0V80Z" fill="white" filter="url(#soft-blur)" />
+
+          {/* Layer 1: soft fog shape */}
+          <path
+            d="M0 220
+               C 120 150 240 260 360 200
+               C 480 150 600 260 720 190
+               C 860 110 980 255 1100 180
+               C 1220 120 1340 240 1440 160
+               V 360 H 0 Z"
+            fill="white"
+            filter="url(#bottom-soft)"
+            mask="url(#ragged-fade-mask)"
+          />
+
+          {/* Layer 2: sharper irregular spikes for a more torn edge */}
+          <path
+            d="M0 235
+               C 80 190 170 250 260 205
+               C 340 170 430 245 520 205
+               C 610 170 700 230 790 195
+               C 880 160 970 235 1060 190
+               C 1145 150 1240 230 1320 185
+               C 1385 150 1415 185 1440 165
+               V 360 H 0 Z"
+            fill="white"
+            filter="url(#bottom-spikes)"
+            mask="url(#ragged-fade-mask)"
+          />
         </svg>
       </div>
     </section>
