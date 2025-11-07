@@ -12,6 +12,7 @@ export default function ConsultationModal() {
   const [phone, setPhone] = useState("");
   const [touchedName, setTouchedName] = useState(false);
   const [touchedPhone, setTouchedPhone] = useState(false);
+  const [showHintFor, setShowHintFor] = useState<null | "name" | "phone">(null);
 
   const isPhoneValid = useMemo(() => {
     const d = phone.replace(/\D/g, "");
@@ -84,6 +85,7 @@ export default function ConsultationModal() {
         {/* Form */}
         <form
           className="mt-6 md:mt-8 space-y-5"
+          noValidate
           onSubmit={(e) => {
             e.preventDefault();
             if (!isValid) return;
@@ -91,35 +93,65 @@ export default function ConsultationModal() {
           }}
         >
           {/* Name */}
-          <div>
+          <div className="relative">
             <label className="block text-[14px] leading-[18px] text-black/60 mb-2">{t.contactSection.nameLabel}</label>
             <input
               type="text"
               placeholder={t.contactSection.namePlaceholder}
-              className={`w-full h-[56px] rounded-lg px-[18px] text-[16px] placeholder:text-[#D8D8D8] border ${
+              aria-invalid={touchedName && name.trim().length < 2}
+              aria-describedby={showHintFor === "name" ? "name-hint" : undefined}
+              className={`peer w-full h-[56px] rounded-lg px-[18px] text-[16px] placeholder:text-[#D8D8D8] border focus:outline-none focus:ring-2 focus:ring-[#FFD02B]/60 transition ${
                 touchedName && name.trim().length < 2 ? "border-red-400" : "border-[#d8d8d8]"
               }`}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              onBlur={() => setTouchedName(true)}
+              onBlur={() => {
+                setTouchedName(true);
+                if (name.trim().length < 2) setShowHintFor("name"); else if (showHintFor === "name") setShowHintFor(null);
+              }}
+              onFocus={() => showHintFor === "name" && setShowHintFor(null)}
               required
             />
+            {touchedName && name.trim().length < 2 && showHintFor === "name" && (
+              <div
+                id="name-hint"
+                role="alert"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 whitespace-nowrap bg-[#1D1918] text-[#FFD02B] text-[12px] font-medium rounded-md shadow-lg px-3 py-2"
+              >
+                {name.trim().length === 0 ? "Заповніть це поле." : "Мінімум 2 символи."}
+              </div>
+            )}
           </div>
           {/* Phone */}
-          <div>
+          <div className="relative">
             <label className="block text-[14px] leading-[18px] text-black/60 mb-2">{t.contactSection.phoneLabel}</label>
             <input
               type="tel"
               placeholder={t.contactSection.phonePlaceholder}
-              className={`w-full h-[56px] rounded-lg px-[18px] text-[16px] placeholder:text-[#D8D8D8] border ${
+              aria-invalid={touchedPhone && !isPhoneValid}
+              aria-describedby={showHintFor === "phone" ? "phone-hint" : undefined}
+              className={`peer w-full h-[56px] rounded-lg px-[18px] text-[16px] placeholder:text-[#D8D8D8] border focus:outline-none focus:ring-2 focus:ring-[#FFD02B]/60 transition ${
                 touchedPhone && !isPhoneValid ? "border-red-400" : "border-[#d8d8d8]"
               }`}
               inputMode="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              onBlur={() => setTouchedPhone(true)}
+              onBlur={() => {
+                setTouchedPhone(true);
+                if (!isPhoneValid) setShowHintFor("phone"); else if (showHintFor === "phone") setShowHintFor(null);
+              }}
+              onFocus={() => showHintFor === "phone" && setShowHintFor(null)}
               required
             />
+            {touchedPhone && !isPhoneValid && showHintFor === "phone" && (
+              <div
+                id="phone-hint"
+                role="alert"
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 whitespace-nowrap bg-[#1D1918] text-[#FFD02B] text-[12px] font-medium rounded-md shadow-lg px-3 py-2"
+              >
+                {phone.trim().length === 0 ? "Введіть номер телефону." : "Формат: 380XXXXXXXXX або 0XXXXXXXXX"}
+              </div>
+            )}
           </div>
 
           {/* Submit */}
@@ -130,6 +162,7 @@ export default function ConsultationModal() {
                 ? "bg-[#1D1918] text-[#FFD02B] hover:bg-[#141212]"
                 : "bg-gradient-to-r from-[#FFCF2B] to-[#F7B71E] text-[#1D1918]"
             }`}
+            disabled={!isValid}
           >
             {t.contactSection.submit}
           </button>
