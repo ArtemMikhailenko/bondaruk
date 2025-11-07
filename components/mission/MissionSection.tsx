@@ -32,9 +32,9 @@ export function MissionSection() {
         <button
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="mt-8 md:mt-12 lg:mt-[60px] w-full md:w-[324px] h-[56px] md:h-[62px] border border-[#1D1918] rounded-[55px] flex items-center justify-center hover:bg-[#1D1918] transition-colors"
+          className="mt-8 md:mt-12 lg:mt-[60px] w-full md:w-[324px] h-[56px] md:h-[62px] border border-[#1D1918] rounded-[55px] flex items-center justify-center bg-white hover:bg-[#1D1918] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD02B] focus-visible:ring-offset-2"
         >
-          <span className="text-base md:text-lg leading-6 font-bold text-[#1D1918] hover:text-[#FFD02B]">
+          <span className="text-base md:text-lg leading-6 font-bold text-[#1D1918] transition-colors group-hover:text-[#FFD02B]">
             {t.mission.button}
           </span>
         </button>

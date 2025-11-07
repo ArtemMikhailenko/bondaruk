@@ -7,7 +7,7 @@ export function ContactSection() {
   const { t } = useLocale();
 
   return (
-    <section className="relative bg-white overflow-hidden py-0 md:py-0" style={{ minHeight: '700px' }}>
+    <section className="relative bg-white  py-0 md:py-0" style={{ minHeight: '700px' }}>
       {/* Ragged top haze - stronger and more irregular */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[160px] md:h-[220px] lg:h-[260px] z-[5]">
         <svg viewBox="0 0 1440 260" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="none">
@@ -210,8 +210,8 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* Desktop social media buttons - fixed right */}
-      <div className="hidden md:flex fixed right-4 md:right-6 lg:right-8 top-[184px] z-50 flex-col gap-4">
+  {/* Desktop social media buttons - attached to this section only */}
+  <div className="hidden md:flex absolute right-4 md:right-6 lg:right-8 top-[184px] z-50 flex-col gap-4">
         {/* Telegram */}
         <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

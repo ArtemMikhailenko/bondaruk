@@ -68,7 +68,7 @@ export default function ConsultationModal() {
         {/* Title */}
         <h3
           className="text-[#1D1918] leading-[1.12] md:leading-10 font-bold text-center mt-4 whitespace-nowrap"
-          style={{ fontSize: "clamp(13px, 4.2vw, 36px)" }}
+          style={{ fontSize: "clamp(13px, 4.2vw, 34px)" }}
         >
           {t.contactSection.title}
         </h3>
