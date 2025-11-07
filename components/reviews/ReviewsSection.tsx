@@ -53,8 +53,11 @@ export function ReviewsSection() {
     id: index + 1,
     author: item.author,
     text: item.text,
-    rating: 5,
+    rating: item.rating,
   }));
+
+  // Get current review's rating
+  const currentRating = reviews[currentIndex]?.rating || 5;
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
@@ -221,7 +224,7 @@ export function ReviewsSection() {
                       height="15"
                       viewBox="0 0 24 23"
                       fill="none"
-                      className={`md:w-6 md:h-6 ${star <= 4 ? "fill-[#FCC71C]" : star === 5 ? "fill-none stroke-[#FCC71C]" : "fill-none stroke-[#FCC71C]"}`}
+                      className={`md:w-6 md:h-6 ${star <= currentRating ? "fill-[#FCC71C]" : "fill-none stroke-[#FCC71C]"}`}
                     >
                       <path d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z" />
                     </svg>
@@ -230,7 +233,7 @@ export function ReviewsSection() {
               </div>
 
               <div className="text-[14px] md:text-[22px] leading-[25px] md:leading-[39px] font-bold text-[#1D1918]">
-                4.9
+                {currentRating.toFixed(1)}
               </div>
             </div>
 

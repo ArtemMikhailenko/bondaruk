@@ -43,14 +43,17 @@ export const translations = {
         {
           author: 'Оксана Петренко',
           text: 'Професіонал високого рівня, з якою дійсно почуваєш\nсебе у безпеці і комфорті від початку продажу старої\nнерухомості до придбання нового житла. Я дуже\nвдячний пані Олені за ту легкість, яку вона нам\nподарувала з продажу та купівлі квартири!',
+          rating: 5,
         },
         {
           author: 'Іван Коваленко',
           text: 'Чудовий фахівець! Олена допомогла знайти ідеальну\nквартиру для нашої сім\'ї. Весь процес пройшов швидко\nі без проблем. Рекомендую!',
+          rating: 5,
         },
         {
           author: 'Марія Шевченко',
           text: 'Дуже задоволена співпрацею! Професійний підхід,\nчесність і відповідальність. Олена завжди на зв\'язку\nі готова допомогти.',
+          rating: 4,
         },
       ],
     },
@@ -448,14 +451,17 @@ export const translations = {
         {
           author: 'Oksana Petrenko',
           text: 'A high-level professional with whom you really feel\nsafe and comfortable from the beginning of selling the old\nproperty to acquiring a new home. I am very\ngrateful to Ms. Elena for the ease she gave us\nwith selling and buying the apartment!',
+          rating: 5,
         },
         {
           author: 'Ivan Kovalenko',
           text: 'Wonderful specialist! Elena helped find the perfect\napartment for our family. The whole process went quickly\nand without problems. Recommend!',
+          rating: 5,
         },
         {
           author: 'Maria Shevchenko',
           text: 'Very satisfied with the cooperation! Professional approach,\nhonesty and responsibility. Elena is always in touch\nand ready to help.',
+          rating: 4,
         },
       ],
     },
