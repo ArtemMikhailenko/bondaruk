@@ -101,7 +101,7 @@ export const translations = {
     hero: {
       tag: 'Рієлтор Києва',
       name: 'Олена Бондарук -',
-      role: 'агент нерухомості',
+      role: 'агент з нерухомості',
       descriptionPart1: 'Разом із',
       descriptionPart2: 'допомагаю купити, продати чи здати',
       descriptionBold: 'житло без зайвих ризиків і клопоту.',
@@ -178,6 +178,7 @@ export const translations = {
       paragraph1: 'Секрет успіху в рієлторстві — це не лише вміння продати чи купити нерухомість. Це вміння створювати довіру, а також забезпечувати покупців та продавців відчуттям комфорту на кожному етапі угоди. І моя головна місія як професійного рієлтора — полягає в тому, щоб зробити кожну покупку, продаж та оренду нерухомості найбільш комфортною та успішною для моїх клієнтів, адже за кожною угодою стоїть не лише матеріальний аспект, але й душевний спокій та довіра, що важливо на будь-якому етапі.',
       paragraph2: 'Мій принцип роботи базується на індивідуальному підході до кожного клієнта. Розуміння ваших потреб, мрій та обставин допомагає мені забезпечувати найвищу якість обслуговування та досягати відмінних результатів. Саме тому, у кожну угоду я вкладаю свою душу та професіоналізм, щоб забезпечити вас найкращими умовами та найвигіднішими пропозиціями.',
       button: 'Детальніше',
+      buttonCollapse: 'Згорнути',
     },
     footer: {
       cta: 'Безкоштовна консультація',
@@ -304,7 +305,7 @@ export const translations = {
     hero: {
       tag: 'Риэлтор Киева',
       name: 'Елена Бондарук -',
-      role: 'агент недвижимости',
+      role: 'агент с недвижимости',
       descriptionPart1: 'Вместе с',
       descriptionPart2: 'помогаю купить, продать или сдать',
       descriptionBold: 'жилье без лишних рисков и хлопот.',
@@ -380,6 +381,7 @@ export const translations = {
       paragraph1: 'Секрет успеха в риэлторстве — это не только умение продать или купить недвижимость. Это умение создавать доверие, а также обеспечивать покупателей и продавцов чувством комфорта на каждом этапе сделки. И моя главная миссия как профессионального риэлтора — заключается в том, чтобы сделать каждую покупку, продажу и аренду недвижимости наиболее комфортной и успешной для моих клиентов, ведь за каждой сделкой стоит не только материальный аспект, но и душевное спокойствие и доверие, что важно на любом этапе.',
       paragraph2: 'Мой принцип работы базируется на индивидуальном подходе к каждому клиенту. Понимание ваших потребностей, мечт и обстоятельств помогает мне обеспечивать высочайшее качество обслуживания и достигать отличных результатов. Именно поэтому, в каждую сделку я вкладываю свою душу и профессионализм, чтобы обеспечить вас лучшими условиями и самыми выгодными предложениями.',
       button: 'Подробнее',
+      buttonCollapse: 'Свернуть',
     },
     footer: {
       cta: 'Бесплатная консультация',
@@ -585,6 +587,7 @@ export const translations = {
       paragraph1: 'The secret of success in real estate is not just the ability to sell or buy property. It\'s the ability to create trust, as well as to provide buyers and sellers with a sense of comfort at every stage of the transaction. And my main mission as a professional realtor is to make every purchase, sale and rental of real estate the most comfortable and successful for my clients, because behind every transaction there is not only a material aspect, but also peace of mind and trust, which is important at any stage.',
       paragraph2: 'My work principle is based on an individual approach to each client. Understanding your needs, dreams and circumstances helps me provide the highest quality of service and achieve excellent results. That\'s why I put my soul and professionalism into every transaction to provide you with the best conditions and the most profitable offers.',
       button: 'Learn More',
+      buttonCollapse: 'Show Less',
     },
     footer: {
       cta: 'Free Consultation',

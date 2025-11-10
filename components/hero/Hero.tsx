@@ -20,8 +20,16 @@ export function Hero() {
           className="object-cover object-left rounded-bl-[180px]"
           priority
         />
-        {/* Gradient overlay for smooth fade on the right */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white rounded-bl-[60px]" /> */}
+        {/* Gradient overlay for smooth fade on the right edge of the background image */}
+        <div
+          aria-hidden
+          className="absolute inset-0 rounded-bl-[180px]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 55%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%)",
+          }}
+        />
+        {/* Bottom fade removed as per latest request */}
       </div>
 
       <div className="site-container pt-4 md:pt-6 lg:pt-8 xl:pt-4 relative z-10">
@@ -83,7 +91,7 @@ export function Hero() {
                 height={916}
                 priority
                 sizes="(max-width: 1024px) 90vw, 772px"
-                className="hero-photo-mask w-full h-auto object-cover"
+                className=" w-full h-auto object-cover"
               />
 
               {/* Floating reviews card */}

@@ -28,7 +28,7 @@ export function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="flex items-center justify-between gap-3 lg:gap-4 2xl:gap-[60px]">
+    <nav className="flex items-center justify-between gap-2 lg:gap-2 2xl:gap-[20px]">
       {navItems.map((item) => {
         const isActive = item.key === 'agents'; // Пример активного элемента
         

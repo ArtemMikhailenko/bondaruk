@@ -59,6 +59,11 @@ export function ReviewsSection() {
   // Get current review's rating
   const currentRating = reviews[currentIndex]?.rating || 5;
 
+  // Force a controlled line break on large screens so the title stays on two lines
+  const titleParts = (t.reviews.title || "").split(" ");
+  const firstWord = titleParts.shift() || "";
+  const restTitle = titleParts.join(" ");
+
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
   };
@@ -68,7 +73,7 @@ export function ReviewsSection() {
   };
 
   return (
-    <section className="py-10 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#FCFCFC]">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#FCFCFC]">
       <div className="site-container">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-12 items-center">
           
@@ -80,9 +85,11 @@ export function ReviewsSection() {
               <span className="text-[14px] leading-7 font-medium">{t.reviews.tag}</span>
             </div>
 
-            {/* Title */}
+            {/* Title: always 2 lines on lg+ */}
             <h2 className="text-[36px] md:text-[52px] lg:text-[68px] xl:text-[82px] leading-[1.1] font-medium mb-4 md:mb-6">
-              {t.reviews.title}
+              <span className="lg:whitespace-nowrap">{firstWord}</span>
+              <br className="hidden lg:block" />
+              <span className="lg:whitespace-nowrap">{restTitle}</span>
             </h2>
 
             {/* Subtitle */}

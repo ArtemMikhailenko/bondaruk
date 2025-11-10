@@ -64,8 +64,8 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
 
         {/* Arrow button */}
         <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full bg-[#FCC71C] flex items-center justify-center text-[#1D1918] group-hover:bg-[#fdd54d] transition-colors">
-          {/* Card arrow: original corner-arrow (24x24) */}
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+          {/* Card arrow: enlarged to 32x32 */}
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="md:w-8 md:h-8">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
@@ -105,9 +105,9 @@ export function ServicesSection() {
   };
 
   return (
-    <section className="py-10 md:py-16 lg:py-20 bg-[#FAFAFA] overflow-hidden">
-      {/* Header - inside container */}
+    <section className="py-12 md:py-16 lg:py-20 bg-[#FAFAFA] overflow-hidden">
       <div className="site-container">
+        {/* Header */}
         <div className="flex items-end justify-between mb-6 md:mb-8 lg:mb-12">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white px-[18px] py-1 mb-3 md:mb-4">
@@ -129,9 +129,8 @@ export function ServicesSection() {
               }`}
               aria-label="Previous"
             >
-              <svg width="16" height="21" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                <path d="M20 12H8" stroke="#1D1918" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M12 6l-6 6 6 6" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M26.7836 16.3458L5.91406 16.3458M5.91406 16.3458L13.7402 8.51971M5.91406 16.3458L13.7401 24.1719" stroke="#1D1918" strokeWidth="2.6087" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
@@ -142,21 +141,19 @@ export function ServicesSection() {
               }`}
               aria-label="Next"
             >
-              <svg width="16" height="21" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
-                <path d="M4 12h12" stroke="#1D1918" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M12 6l6 6-6 6" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M5.21637 15.6542L26.0859 15.6542M26.0859 15.6542L18.2598 23.4803M26.0859 15.6542L18.2599 7.82812" stroke="#1D1918" strokeWidth="2.6087" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
         </div>
       </div>
-
-      {/* Slider - starts from container left, extends to screen right edge */}
-      <div className="relative">
+      {/* Slider (full-bleed to the right, aligned left to container) */}
+      <div className="relative w-screen -mx-4 md:-mx-6 lg:mx-0 lg:pl-[calc((100vw-1320px)/2+32px)] min-[1900px]:pl-[calc((100vw-1560px)/2+40px)]">
         <div
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex gap-3 md:gap-4 overflow-x-auto scrollbar-hide pl-4 md:pl-6 lg:pl-[max(32px,calc((100vw-1320px)/2+32px))] pr-4 md:pr-6 sm:pr-0"
+          className="flex gap-3 md:gap-4 overflow-x-auto scrollbar-hide px-4 md:px-6 lg:px-0"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           <ServiceCard

@@ -8,7 +8,7 @@ export function MissionSection() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="site-container py-10 md:py-16 lg:py-20">
+    <section className="site-container py-12 md:py-16 lg:py-20">
       <div className="max-w-[1440px]">
         {/* Content wrapper */}
         <div className="flex flex-col gap-5 md:gap-6 lg:gap-7">
@@ -28,14 +28,15 @@ export function MissionSection() {
           </div>
         </div>
 
-        {/* Button */}
+        {/* Button (stays visible and toggles label) */}
         <button
+          type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
           className="mt-8 md:mt-12 lg:mt-[60px] w-full md:w-[324px] h-[56px] md:h-[62px] border border-[#1D1918] rounded-[55px] flex items-center justify-center bg-white hover:bg-[#1D1918] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD02B] focus-visible:ring-offset-2"
         >
           <span className="text-base md:text-lg leading-6 font-bold text-[#1D1918] transition-colors group-hover:text-[#FFD02B]">
-            {t.mission.button}
+            {expanded ? (t.mission.buttonCollapse ?? t.mission.button) : t.mission.button}
           </span>
         </button>
       </div>

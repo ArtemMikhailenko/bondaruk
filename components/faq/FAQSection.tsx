@@ -36,7 +36,7 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-10 md:py-16 lg:py-20 bg-white">
+    <section className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="site-container">
   <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] xl:grid-cols-[0.75fr_1.25fr] gap-4 md:gap-6 lg:gap-6">
           
@@ -80,7 +80,7 @@ export function FAQSection() {
                   }`}
                 >
                   <div className="flex items-start gap-3 md:gap-4 flex-1">
-                    <span className="text-[16px] md:text-[18px] leading-[26px] text-[#181818]/40 font-medium flex-shrink-0">
+                    <span className="text-[16px] md:text-[18px] leading-[26px] text-[#181818]/40 font-bold flex-shrink-0">
                       0{index + 1}
                     </span>
                     <h3 className="text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[1.3] font-semibold text-[#1D1918]">
@@ -93,7 +93,7 @@ export function FAQSection() {
                     className={`w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                       openIndex === index
                         ? "bg-[#1D1918]"
-                        : "bg-[#31AA5A]"
+                        : "bg-gradient-to-b from-[#31AA5A] to-[#258A49]"
                     }`}
                   >
                     {openIndex === index ? (

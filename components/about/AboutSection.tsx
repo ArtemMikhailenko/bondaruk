@@ -36,8 +36,17 @@ function StatCard({
         
         <div className="relative z-10 ml-8 md:ml-[82px] mt-[30px]">{icon}</div>
         <div className="relative z-10 ml-8 md:ml-[82px] mb-[30px] mt-auto">
-          <div className="text-[64px] leading-[1.2] font-semibold">{value}</div>
-          <div className="mt-[14px] text-[16px] md:text-[18px] leading-[16px] md:leading-[18px]">{label}</div>
+          <div className="text-[64px] leading-[1.2] font-semibold">
+            {value.includes('%') ? (
+              <>
+                {value.replace('%', '')}
+                <span className="inline-block ml-1 align-baseline text-[0.4em] leading-none">%</span>
+              </>
+            ) : (
+              value
+            )}
+          </div>
+          <div className="-mt-[5px] text-[16px] md:text-[18px] leading-[16px] md:leading-[18px]">{label}</div>
         </div>
       </div>
     );
@@ -56,8 +65,17 @@ function StatCard({
     >
       <div className={`${leftPadding} mt-[30px]`}>{icon}</div>
       <div className={`${leftPadding} mb-[30px] mt-auto`}>
-        <div className="text-[60px] leading-[1.2] font-semibold">{value}</div>
-        <div className="mt-[14px] text-[16px] md:text-[18px] leading-[16px] md:leading-[18px]">{label}</div>
+        <div className="text-[60px] leading-[1.2] font-semibold">
+          {value.includes('%') ? (
+            <>
+              {value.replace('%', '')}
+              <span className="inline-block ml-1 align-baseline text-[0.7em] leading-none">%</span>
+            </>
+          ) : (
+            value
+          )}
+        </div>
+  <div className="-mt-[5px] text-[16px] md:text-[18px] leading-[16px] md:leading-[18px]">{label}</div>
       </div>
     </div>
   );
@@ -67,7 +85,7 @@ export function AboutSection() {
   const { t } = useLocale();
 
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-20">
+  <section className="bg-white py-12 md:py-16 lg:py-20">
       <div className="site-container">
   <div className="grid lg:grid-cols-[1fr_auto] gap-8 md:gap-12 items-stretch">
           {/* Left column - Tag, Title, Text */}
@@ -89,11 +107,13 @@ export function AboutSection() {
               {/* Formatted paragraph with highlights as per design */}
               <span className="font-semibold">{t.about.rich1.leadBold}</span>
               {t.about.rich1.leadRest}
+              {" "}
               {t.about.rich1.i}
               <span className="font-semibold">{t.about.rich1.name}</span>
               {t.about.rich1.roleBefore}
               <span className="font-semibold text-gradient-green">{t.about.rich1.brand}</span>
               {t.about.rich1.roleAfter}
+              {" "}
               {t.about.rich1.helpStart}
               <span className="font-semibold">{t.about.rich1.helpBold}</span>
             </p>

@@ -86,7 +86,7 @@ export function ReputationSection() {
             style={{ boxShadow: '0px 4px 41.5px rgba(87, 87, 87, 0.08)' }}
           >
             <div>
-              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-4 lg:mb-[16px]">
+              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-2 lg:mb-[10px]">
                 {t.reputation.idealTitle}
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-full lg:max-w-[547px]">
@@ -104,7 +104,7 @@ export function ReputationSection() {
             style={{ boxShadow: '0px 4px 41.5px rgba(87, 87, 87, 0.08)' }}
           >
             <div className="relative z-10">
-              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-4 lg:mb-[23px]">
+              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-2 lg:mb-[12px]">
                 {t.reputation.cardTitle1} <span className="inline-flex items-center justify-center bg-white rounded-[23px] lg:rounded-[39px] px-2 lg:px-[15px] h-[28px] lg:h-[47px] text-[18px] lg:text-[32px] leading-[18px] lg:leading-[32px] font-bold align-middle mx-1">{t.reputation.cardTimes}</span> {t.reputation.cardTitle2}
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-[285px] lg:max-w-none">
@@ -127,7 +127,7 @@ export function ReputationSection() {
             style={{ boxShadow: '0px 4px 41.5px rgba(87, 87, 87, 0.08)' }}
           >
             <div>
-              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-4 lg:mb-[16px]">
+              <h3 className="text-[22px] lg:text-[38px] leading-[28px] lg:leading-[38px] font-bold mb-2 lg:mb-[10px]">
                 {t.reputation.benefitsTitle}
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-full lg:max-w-[397px]">

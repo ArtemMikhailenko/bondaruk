@@ -35,7 +35,7 @@ export function Header() {
               <div className="flex-1">
                 <Navigation />
               </div>
-              <div className="ml-4 lg:ml-6 shrink-0">
+              <div className="ml-4 lg:ml-14 shrink-0">
                 <LanguageSwitcher />
               </div>
             </div>
