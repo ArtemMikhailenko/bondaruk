@@ -77,21 +77,39 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
 export function ServicesSection() {
   const { t } = useLocale();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(true);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const checkScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 0);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-  };
-
   useEffect(() => {
-    // Check scroll on mount and resize
-    checkScroll();
-    window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
+    const handleScroll = () => {
+      if (!scrollRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const cardWidth = 498; // Approximate card width + gap
+      const totalCardsWidth = cardWidth * 4; // 4 original cards
+
+      // When scrolled near the end, jump back to the first set
+      if (scrollLeft + clientWidth >= scrollWidth - cardWidth) {
+        scrollRef.current.scrollLeft = scrollLeft - totalCardsWidth;
+      }
+      // When scrolled near the beginning, jump to the cloned set
+      else if (scrollLeft <= cardWidth) {
+        scrollRef.current.scrollLeft = scrollLeft + totalCardsWidth;
+      }
+    };
+
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+      // Set initial scroll position to first set of real cards
+      const cardWidth = 498;
+      scrollContainer.scrollLeft = cardWidth * 4;
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, []);
 
   const scroll = (direction: "left" | "right") => {
@@ -101,7 +119,6 @@ export function ServicesSection() {
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
-    setTimeout(checkScroll, 300);
   };
 
   return (
@@ -123,10 +140,7 @@ export function ServicesSection() {
           <div className="flex lg:flex items-center gap-2 md:gap-3">
             <button
               onClick={() => scroll("left")}
-              disabled={!canScrollLeft}
-              className={`w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full border border-[#1D1918] flex items-center justify-center transition-all ${
-                canScrollLeft ? "opacity-100 hover:bg-gray-50" : "opacity-25 cursor-not-allowed"
-              }`}
+              className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full border border-[#1D1918] flex items-center justify-center transition-all opacity-100 hover:bg-gray-50"
               aria-label="Previous"
             >
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -135,10 +149,7 @@ export function ServicesSection() {
             </button>
             <button
               onClick={() => scroll("right")}
-              disabled={!canScrollRight}
-              className={`w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center transition-all ${
-                canScrollRight ? "bg-[#FCC71C] hover:bg-[#fdd54d]" : "bg-white border border-[#1D1918] opacity-25 cursor-not-allowed"
-              }`}
+              className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center transition-all bg-[#FCC71C] hover:bg-[#fdd54d]"
               aria-label="Next"
             >
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -152,10 +163,54 @@ export function ServicesSection() {
       <div className="relative w-screen -mx-4 md:-mx-6 lg:mx-0 lg:pl-[calc((100vw-1320px)/2+32px)] min-[1900px]:pl-[calc((100vw-1560px)/2+40px)]">
         <div
           ref={scrollRef}
-          onScroll={checkScroll}
           className="flex gap-3 md:gap-4 overflow-x-auto scrollbar-hide px-4 md:px-6 lg:px-0"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
+          {/* First clone set for infinite loop */}
+          <ServiceCard
+            title={t.services.cards.lend.title}
+            subtitle={t.services.cards.lend.subtitle}
+            imageSrc="/images/posluga1.png"
+          />
+          <ServiceCard
+            title={t.services.cards.sell.title}
+            subtitle={t.services.cards.sell.subtitle}
+            imageSrc="/images/posluga2.png"
+          />
+          <ServiceCard
+            title={t.services.cards.buy.title}
+            subtitle={t.services.cards.buy.subtitle}
+            imageSrc="/images/posluga3.png"
+          />
+          <ServiceCard
+            title={t.services.cards.rent.title}
+            subtitle={t.services.cards.rent.subtitle}
+            imageSrc="/images/posluga4.png"
+          />
+
+          {/* Original set */}
+          <ServiceCard
+            title={t.services.cards.lend.title}
+            subtitle={t.services.cards.lend.subtitle}
+            imageSrc="/images/posluga1.png"
+          />
+          <ServiceCard
+            title={t.services.cards.sell.title}
+            subtitle={t.services.cards.sell.subtitle}
+            imageSrc="/images/posluga2.png"
+          />
+          <ServiceCard
+            title={t.services.cards.buy.title}
+            subtitle={t.services.cards.buy.subtitle}
+            imageSrc="/images/posluga3.png"
+          />
+          <ServiceCard
+            title={t.services.cards.rent.title}
+            subtitle={t.services.cards.rent.subtitle}
+            imageSrc="/images/posluga4.png"
+          />
+
+          {/* Second clone set for infinite loop */}
           <ServiceCard
             title={t.services.cards.lend.title}
             subtitle={t.services.cards.lend.subtitle}
