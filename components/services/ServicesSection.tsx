@@ -37,7 +37,7 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
   return (
     <a
       href={href}
-      className="group relative flex-shrink-0 w-[calc(100vw-48px)] sm:w-[360px] md:w-[400px] lg:w-[460px] xl:w-[482px] h-[240px] sm:h-[280px] md:h-[300px] lg:h-[320px] xl:h-[332px] rounded-[20px] md:rounded-[24px] overflow-hidden block transition-transform hover:scale-[1.02] cursor-pointer"
+      className="group relative flex-shrink-0 w-[calc(100vw-48px)] sm:w-[360px] md:w-[400px] lg:w-[460px] xl:w-[482px] h-[240px] sm:h-[280px] md:h-[300px] lg:h-[320px] xl:h-[332px] rounded-[20px] md:rounded-[24px] overflow-hidden block transition-transform hover:scale-[1.02] cursor-pointer snap-start snap-always"
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -79,13 +79,15 @@ export function ServicesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(true);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  // Mobile progress within one logical cycle of 4 cards (the original set)
+  const [progress, setProgress] = useState(0); // 0..1
 
   useEffect(() => {
     const handleScroll = () => {
       if (!scrollRef.current) return;
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      const cardWidth = 498; // Approximate card width + gap
-      const totalCardsWidth = cardWidth * 4; // 4 original cards
+      const cardWidth = 498; // Approximate card width + gap (used as threshold)
+      const totalCardsWidth = scrollWidth / 3; // one cycle width (4 original cards)
 
       // When scrolled near the end, jump back to the first set
       if (scrollLeft + clientWidth >= scrollWidth - cardWidth) {
@@ -95,14 +97,28 @@ export function ServicesSection() {
       else if (scrollLeft <= cardWidth) {
         scrollRef.current.scrollLeft = scrollLeft + totalCardsWidth;
       }
+
+      // Compute progress inside a single cycle (0..1) for mobile bar
+      // Set the logical cycle start at the beginning of the middle (original) set
+  const cycleStart = totalCardsWidth; // we position initially here
+      // position within cycle for the left edge of viewport
+      const raw = scrollLeft - cycleStart;
+      const normalized = ((raw % totalCardsWidth) + totalCardsWidth) % totalCardsWidth;
+      const scrollableWithinCycle = Math.max(totalCardsWidth - clientWidth, 1);
+      const ratio = Math.min(1, Math.max(0, normalized / scrollableWithinCycle));
+      setProgress(ratio);
     };
 
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener("scroll", handleScroll);
       // Set initial scroll position to first set of real cards
-      const cardWidth = 498;
-      scrollContainer.scrollLeft = cardWidth * 4;
+      const cycleWidth = scrollContainer.scrollWidth / 3;
+      scrollContainer.scrollLeft = cycleWidth;
+      // Initialize progress after positioning
+      const clientWidth = scrollContainer.clientWidth;
+      const scrollableWithinCycle = Math.max(cycleWidth - clientWidth, 1);
+      setProgress(0 / scrollableWithinCycle); // 0
     }
 
     return () => {
@@ -112,17 +128,45 @@ export function ServicesSection() {
     };
   }, []);
 
+  // Keep snap padding equal to actual paddings (handles md/lg differences)
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const apply = () => {
+      const styles = getComputedStyle(el);
+      const pl = parseFloat(styles.paddingLeft) || 0;
+      const pr = parseFloat(styles.paddingRight) || 0;
+      // Add a tiny bias to the left to гарантировать, что предыдущая карточка не подглядывает из‑за сабпикселов
+      el.style.scrollPaddingLeft = `${pl + 1}px`;
+      el.style.scrollPaddingRight = `${pr}px`;
+    };
+    apply();
+    window.addEventListener("resize", apply);
+    return () => window.removeEventListener("resize", apply);
+  }, []);
+
   const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const scrollAmount = 498; // card width + gap
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
+    const container = scrollRef.current;
+    if (!container) return;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children.length < 2) return;
+
+    const first = children[0];
+    const second = children[1];
+    const step = Math.max(1, second.offsetLeft - first.offsetLeft); // one card + gap
+    const base = first.offsetLeft; // left start of first card
+
+    // Current nearest card start
+    const current = container.scrollLeft;
+    let index = Math.round((current - base) / step);
+    index += direction === "right" ? 1 : -1;
+
+    const target = base + index * step;
+    container.scrollTo({ left: target, behavior: "smooth" });
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-[#FAFAFA] overflow-hidden">
+    <section className="py-16 md:py-16 lg:py-20 bg-[#FAFAFA] overflow-hidden">
       <div className="site-container">
         {/* Header */}
         <div className="flex items-end justify-between mb-6 md:mb-8 lg:mb-12">
@@ -131,40 +175,40 @@ export function ServicesSection() {
               <GradientDot />
               <span className="text-[14px] leading-7 font-medium">{t.services.tag}</span>
             </div>
-            <h2 className="text-[36px] md:text-[52px] lg:text-[68px] xl:text-[82px] leading-[1.08] font-medium">
+            <h2 className="text-[46px] leading-[52px] md:text-[52px] md:leading-[1.08] lg:text-[68px] lg:leading-[1.08] xl:text-[82px] xl:leading-[1.08] font-medium">
               {t.services.title}
             </h2>
           </div>
 
           {/* Navigation arrows - desktop only */}
-          <div className="flex lg:flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             <button
               onClick={() => scroll("left")}
-              className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full border border-[#1D1918] flex items-center justify-center transition-all opacity-100 hover:bg-gray-50"
+              className="w-9 h-9 md:w-[60px] md:h-[60px] rounded-full border border-[#1D1918] bg-white flex items-center justify-center transition-all opacity-25 md:opacity-100 hover:bg-gray-50"
               aria-label="Previous"
             >
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M26.7836 16.3458L5.91406 16.3458M5.91406 16.3458L13.7402 8.51971M5.91406 16.3458L13.7401 24.1719" stroke="#1D1918" strokeWidth="2.6087" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                <path d="M26.7836 16.3458L5.91406 16.3458M5.91406 16.3458L13.7402 8.51971M5.91406 16.3458L13.7401 24.1719" stroke="#1D1918" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-[52px] h-[52px] md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center transition-all bg-[#FCC71C] hover:bg-[#fdd54d]"
+              className="w-9 h-9 md:w-[60px] md:h-[60px] rounded-full flex items-center justify-center transition-all bg-[#FCC71C] hover:bg-[#fdd54d]"
               aria-label="Next"
             >
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M5.21637 15.6542L26.0859 15.6542M26.0859 15.6542L18.2598 23.4803M26.0859 15.6542L18.2599 7.82812" stroke="#1D1918" strokeWidth="2.6087" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                <path d="M5.21637 15.6542L26.0859 15.6542M26.0859 15.6542L18.2598 23.4803M26.0859 15.6542L18.2599 7.82812" stroke="#1D1918" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
         </div>
       </div>
       {/* Slider (full-bleed to the right, aligned left to container) */}
-      <div className="relative w-screen -mx-4 md:-mx-6 lg:mx-0 lg:pl-[calc((100vw-1320px)/2+32px)] min-[1900px]:pl-[calc((100vw-1560px)/2+40px)]">
+      <div className="relative w-screen ml-0 mr-[-14px] md:mr-[-14px] lg:mx-0 lg:pl-[calc((100vw-1320px)/2+32px)] min-[1900px]:pl-[calc((100vw-1560px)/2+40px)]">
         <div
           ref={scrollRef}
-          className="flex gap-3 md:gap-4 overflow-x-auto scrollbar-hide px-4 md:px-6 lg:px-0"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          className="flex gap-3 md:gap-4 overflow-x-auto scrollbar-hide pl-[14px] md:pl-[14px] pr-0 lg:px-0 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollPaddingLeft: 15, scrollPaddingRight: 0 }}
         >
           {/* First clone set for infinite loop */}
           <ServiceCard
@@ -231,6 +275,18 @@ export function ServicesSection() {
             subtitle={t.services.cards.rent.subtitle}
             imageSrc="/images/posluga4.png"
           />
+        </div>
+        {/* Mobile progress bar */}
+        <div className="block md:hidden mt-4">
+          <div className="ml-[14px] md:ml-[14px] w-[calc(100%-28px)] md:w-[calc(100%-28px)] h-1 rounded-full bg-[#D9D9D9] relative overflow-hidden">
+            <div
+              className="absolute left-0 top-0 h-full rounded-full"
+              style={{
+                width: `${Math.round(progress * 100)}%`,
+                background: "linear-gradient(180deg, #31AA5A 0%, #258A49 100%)",
+              }}
+            />
+          </div>
         </div>
       </div>
     </section>

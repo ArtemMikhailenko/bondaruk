@@ -68,7 +68,7 @@ export function ContactSection() {
           {/* Main photo with all built-in cards */}
           <div className="relative w-full h-full">
             <Image
-              src="/images/contact-photo.png"
+              src="/images/contact-photo1.png"
               alt={t.contactSection.name}
               fill
               className="object-contain object-center"
@@ -87,7 +87,7 @@ export function ContactSection() {
         {/* Desktop photo with built-in cards */}
         <div className="hidden md:block absolute left-4 md:left-6 lg:left-[100px] xl:left-[150px] 2xl:left-[250px] top-0 w-[450px] lg:w-[550px] 2xl:w-[750px] h-[700px] overflow-visible">
           <Image
-            src="/images/contact-photo.png"
+            src="/images/contact-photo1.png"
             alt={t.contactSection.name}
             fill
             className="object-contain object-bottom"
@@ -103,11 +103,11 @@ export function ContactSection() {
         </div>
 
         {/* Form section */}
-        <div className="px-4 md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-[100px] xl:right-[150px] 2xl:right-[240px] max-w-full relative">
+        <div className="px- md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-[100px] xl:right-[150px] 2xl:right-[240px] max-w-full relative">
           {/* Wrapper to place form card and desktop socials side-by-side */}
           <div className="md:flex md:items-center md:gap-6 lg:gap-8">
-            <div className="bg-white rounded-[24px] shadow-[0_29px_59.2px_rgba(87,87,87,0.08)] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-0 pt-[29px] md:p-8 2xl:p-[60px]">
-            <h2 className="text-[24px] md:text-[28px] 2xl:text-[35px] font-bold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[36px] 2xl:leading-[43px] px-4 md:px-0">
+            <div className="pt-6 md:pt-0 md:bg-white md:rounded-[24px] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] md:p-8 2xl:p-[60px]">
+            <h2 className="text-[22px] md:text-[28px] 2xl:text-[35px] font-bold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[36px] 2xl:leading-[43px] px-4 md:px-0 whitespace-nowrap md:whitespace-normal">
               {t.contactSection.title}
             </h2>
             <p className="text-[14px] md:text-[16px] 2xl:text-[18px] leading-[20px] md:leading-[24px] 2xl:leading-[26px] mb-[24px] md:mb-[30px] px-4 md:px-0">
@@ -174,18 +174,12 @@ export function ContactSection() {
 
               {/* Instagram */}
               <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4078 15.9059C10.5771 15.7723 9.80976 15.3801 9.21484 14.7852C8.61992 14.1902 8.22773 13.4229 8.09407 12.5922C7.9604 11.7616 8.09207 10.9099 8.47033 10.1584C8.84859 9.40685 9.45419 8.79374 10.201 8.40624C10.9478 8.01874 11.7978 7.87659 12.63 8C13.4789 8.12588 14.2649 8.52146 14.8717 9.1283C15.4785 9.73515 15.8741 10.5211 16 11.37Z" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M17.5 6.5H17.51" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
               </a>
 
               {/* Facebook */}
               <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
               </a>
             </div>
           </div>
@@ -236,18 +230,12 @@ export function ContactSection() {
 
             {/* Instagram */}
             <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-                <rect x="2" y="2" width="20" height="20" rx="5" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5931 15.1514 13.8416 15.5297C13.0901 15.9079 12.2384 16.0396 11.4078 15.9059C10.5771 15.7723 9.80976 15.3801 9.21484 14.7852C8.61992 14.1902 8.22773 13.4229 8.09407 12.5922C7.9604 11.7616 8.09207 10.9099 8.47033 10.1584C8.84859 9.40685 9.45419 8.79374 10.201 8.40624C10.9478 8.01874 11.7978 7.87659 12.63 8C13.4789 8.12588 14.2649 8.52146 14.8717 9.1283C15.4785 9.73515 15.8741 10.5211 16 11.37Z" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M17.5 6.5H17.51" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <Image src="/icons/instagram.svg" alt="Instagram" width={20} height={20} className="w-5 h-5" />
             </a>
 
             {/* Facebook */}
             <a href="#" className="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="#1D1918" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <Image src="/icons/facebook.svg" alt="Facebook" width={20} height={20} className="w-5 h-5" />
             </a>
           </div>
         </div>

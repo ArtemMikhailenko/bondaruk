@@ -11,7 +11,7 @@ export function AwardsSection() {
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left card - Запрошений експерт */}
-          <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px]">
+          <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px] flex flex-col justify-center md:justify-start">
             <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-4 md:mb-8 lg:mb-10">
               {t.awards.expertTitle}
             </h3>
@@ -68,7 +68,7 @@ export function AwardsSection() {
           </div>
 
           {/* Right card - Професійні нагороди */}
-          <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px]">
+          <div className="bg-white rounded-[24px] shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] p-6 md:p-12 lg:p-[60px] min-h-[256px] md:min-h-[320px] lg:min-h-[389px] flex flex-col justify-center md:justify-start">
             <h3 className="text-[24px] md:text-[28px] lg:text-[32px] leading-[28px] md:leading-tight font-medium text-[#1D1918] text-center mb-4 md:mb-8 lg:mb-10">
               {t.awards.awardsTitle}
             </h3>

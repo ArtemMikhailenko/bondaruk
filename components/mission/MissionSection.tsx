@@ -12,7 +12,7 @@ export function MissionSection() {
       <div className="max-w-[1440px]">
         {/* Content wrapper */}
         <div className="flex flex-col gap-5 md:gap-6 lg:gap-7">
-          <h2 className="text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] lg:text-[64px] lg:leading-[72px] font-medium text-[#1D1918]">
+          <h2 className="text-[46px] leading-[52px] md:text-[48px] md:leading-[56px] lg:text-[64px] lg:leading-[72px] font-medium text-[#1D1918]">
             {t.mission.title}
           </h2>
           

@@ -99,7 +99,7 @@ export function AboutSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[36px] leading-[42px] md:text-[50px] md:leading-[56px] lg:text-[60px] lg:leading-[68px] xl:text-[70px] xl:leading-[78px] font-medium mb-4 md:mb-6 lg:mb-[25px] lg:whitespace-nowrap">
+            <h2 className="text-[46px] leading-[52px] md:text-[50px] md:leading-[56px] lg:text-[60px] lg:leading-[68px] xl:text-[70px] xl:leading-[78px] font-medium mb-4 md:mb-6 lg:mb-[25px] lg:whitespace-nowrap">
               {t.about.title}
             </h2>
 
@@ -110,7 +110,7 @@ export function AboutSection() {
               {" "}
               {t.about.rich1.i}
               <span className="font-semibold">{t.about.rich1.name}</span>
-              {t.about.rich1.roleBefore}
+              <span className="font-semibold">{t.about.rich1.roleBefore}</span>
               <span className="font-semibold text-gradient-green">{t.about.rich1.brand}</span>
               {t.about.rich1.roleAfter}
               {" "}
@@ -129,21 +129,21 @@ export function AboutSection() {
               icon={<Image src="/icons/icons1.svg" alt="" width={32} height={32} />}
               value={t.about.experience.value}
               label={t.about.experience.label}
-              className="w-full max-w-[343px] md:w-[180px] lg:w-[190px] h-[237px] md:h-[200px] lg:h-[388px] z-30 lg:z-30 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-[180px] lg:w-[190px] h-[237px] md:h-[200px] lg:h-[388px] z-30 lg:z-30 flex-shrink-0"
             />
             <StatCard
               variant="white"
               icon={<Image src="/icons/icons2.svg" alt="" width={32} height={32} />}
               value={t.about.deals.value}
               label={t.about.deals.label}
-              className="w-full max-w-[343px] md:w-[270px] lg:w-[300px] h-[237px] md:h-[200px] lg:h-[388px] z-20 lg:z-20 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-[270px] lg:w-[300px] h-[237px] md:h-[200px] lg:h-[388px] z-20 lg:z-20 flex-shrink-0"
             />
             <StatCard
               variant="green"
               icon={<Image src="/icons/icons3.svg" alt="" width={32} height={32} />}
               value={t.about.savings.value}
               label={t.about.savings.label}
-              className="w-full max-w-[343px] md:w-[330px] lg:w-[368px] h-[237px] md:h-[200px] lg:h-[388px] z-10 lg:z-10 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-[330px] lg:w-[368px] h-[237px] md:h-[200px] lg:h-[388px] z-10 lg:z-10 flex-shrink-0"
             />
           </div>
         </div>

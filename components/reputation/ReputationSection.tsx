@@ -51,7 +51,7 @@ export function ReputationSection() {
   const { t } = useLocale();
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
+    <section className="relative py-16 md:py-16 lg:py-20 bg-white overflow-hidden">
       {/* Left background image */}
       <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-full max-w-[600px] hidden lg:block">
         <Image
@@ -91,7 +91,7 @@ export function ReputationSection() {
               </h3>
               <p className="text-[14px] lg:text-[18px] leading-[20px] lg:leading-[24px] opacity-80 max-w-full lg:max-w-[547px]">
                 <span className="font-semibold text-[#FCC71C]">{t.reputation.years}</span> {t.reputation.idealText1} <span className="font-semibold">{t.reputation.clients}</span> {t.reputation.idealText2}<br className="hidden lg:block" />
-                {t.reputation.idealText3} <span className="font-semibold">{t.reputation.lawyer}</span> {t.reputation.idealText4}
+                .{t.reputation.idealText3} <span className="font-semibold">{t.reputation.lawyer}</span> {t.reputation.idealText4}
               </p>
             </div>
             <div className="lg:flex-shrink-0">

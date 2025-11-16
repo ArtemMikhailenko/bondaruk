@@ -16,16 +16,21 @@ export function ContactFormBar() {
   }
 
   return (
-    <section className="pb-20">
+    <section className="pb-20 -mt-6 sm:-mt-8 md:mt-0 relative z-20">
       <div className="site-container">
-  <div className="relative rounded-[40px] bg-white overflow-hidden panel-shadow min-h-[199px] flex items-center">
+  <div className="relative rounded-[20px] md:rounded-[40px] bg-white overflow-hidden panel-shadow min-h-[199px] flex items-center">
 
-          {/* decorative left image */}
+          {/* decorative image: top-right on mobile, bottom-left on ≥sm */}
+          {/* Mobile (only): top-right */}
+          <div className="pointer-events-none absolute right-0 top-0 h-[172px] w-[114px] block sm:hidden">
+            <Image src="/images/contact-bar-mobile.png" alt="" fill className="object-cover" />
+          </div>
+          {/* Desktop/Tablet: bottom-left */}
           <div className="pointer-events-none absolute left-0 bottom-0 h-[172px] w-[84px] hidden sm:block">
             <Image src="/images/contact-bar.png" alt="" fill className="object-cover" />
           </div>
 
-          <form onSubmit={onSubmit} className="relative flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-2 px-6 sm:px-8 lg:px-12 py-6 lg:py-8 w-full">
+          <form onSubmit={onSubmit} className="relative flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 lg:gap-2 px-3 sm:px-8 lg:px-12 py-6 lg:py-8 w-full">
             {/* title */}
             <div className="flex-1 min-w-[240px] lg:min-w-0">
               <div className="text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.4]">
@@ -49,7 +54,7 @@ export function ContactFormBar() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t.form.phonePlaceholder}
-                className="w-full h-[54px] lg:h-[62px] rounded-[55px] border border-black/60 px-6 text-[16px] lg:text-[18px] placeholder:text-[#141414]/70 outline-none"
+                className="w-full h-12 lg:h-[62px] rounded-[14px] lg:rounded-[55px] border border-[#E3E3E3] lg:border-black/60 px-[18px] py-3.5 text-[12px] lg:text-[18px] placeholder:text-[#444] outline-none"
               />
             </div>
 
@@ -64,7 +69,7 @@ export function ContactFormBar() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t.form.namePlaceholder}
-                className="w-full h-[54px] lg:h-[62px] rounded-[55px] border border-black/60 px-6 text-[16px] lg:text-[18px] placeholder:text-[#141414]/70 outline-none"
+                className="w-full h-12 lg:h-[62px] rounded-[14px] lg:rounded-[55px] border border-[#E3E3E3] lg:border-black/60 px-[18px] py-3.5 text-[12px] lg:text-[18px] placeholder:text-[#444] outline-none"
               />
             </div>
 

@@ -80,7 +80,7 @@ export function FAQSection() {
                   }`}
                 >
                   <div className="flex items-start gap-3 md:gap-4 flex-1">
-                    <span className="text-[16px] md:text-[18px] leading-[26px] text-[#181818]/40 font-bold flex-shrink-0">
+                    <span className="hidden md:inline-block text-[16px] md:text-[18px] leading-[26px] text-[#181818]/40 font-bold flex-shrink-0">
                       0{index + 1}
                     </span>
                     <h3 className="text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] leading-[1.3] font-semibold text-[#1D1918]">
@@ -115,7 +115,7 @@ export function FAQSection() {
                   }`}
                 >
                   <div className="px-4 pb-4 pt-0 md:px-6 md:pb-6 lg:px-8 lg:pb-8">
-                    <p className="text-[14px] md:text-[16px] lg:text-[18px] leading-[1.5] text-[#181818]/80 ml-[calc(1rem+16px)] md:ml-[calc(1.5rem+18px)]">
+                    <p className="text-[14px] md:text-[16px] lg:text-[18px] leading-[1.5] text-[#181818]/80 ml-0 md:ml-[calc(1.5rem+18px)]">
                       {faq.answer}
                     </p>
                   </div>

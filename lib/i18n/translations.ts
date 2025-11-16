@@ -18,7 +18,7 @@ export const translations = {
       idealText1: 'на ринку —',
       clients: 'мене радять клієнти',
       idealText2: 'та партнери',
-      idealText3: 'Як професійний',
+      idealText3: ' Як професійний',
       lawyer: 'юрист,',
       idealText4: ' я гарантую безпеку кожної угоди',
       benefitsTitle: 'Вигідніше за ринок',
