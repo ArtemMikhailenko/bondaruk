@@ -107,7 +107,7 @@ export const translations = {
       descriptionBold: 'житло без зайвих ризиків і клопоту.',
       cta: 'Безкоштовна консультація',
       reviewsCaption: 'Клієнти залишили позитивні відгуки.',
-      reviewsCount: '+300',
+      reviewsCount: '300+',
       scroll: 'scroll',
     },
     nav: {
@@ -311,7 +311,7 @@ export const translations = {
       descriptionBold: 'жилье без лишних рисков и хлопот.',
       cta: 'Бесплатная консультация',
       reviewsCaption: 'Клиенты оставили положительные отзывы.',
-      reviewsCount: '+300',
+      reviewsCount: '300+',
       scroll: 'scroll',
     },
     nav: {
@@ -517,7 +517,7 @@ export const translations = {
       descriptionBold: 'housing without unnecessary risks and hassle.',
       cta: 'Free Consultation',
       reviewsCaption: 'Clients left positive reviews.',
-      reviewsCount: '+300',
+      reviewsCount: '300+',
       scroll: 'scroll',
     },
     nav: {

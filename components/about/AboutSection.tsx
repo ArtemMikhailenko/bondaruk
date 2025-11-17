@@ -123,27 +123,28 @@ export function AboutSection() {
           </div>
 
           {/* Right column - Stats */}
-          <div className="flex flex-col -space-y-4 md:-space-y-6 lg:flex-row lg:space-y-0 lg:-space-x-12 h-full self-stretch">
+          {/* Mobile: stacked with overlap; Tablet: 2-col grid; Desktop: horizontal row with overlap */}
+          <div className="flex flex-col -space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:flex lg:flex-row lg:space-y-0 lg:-space-x-12 h-full self-stretch">
             <StatCard
               variant="white"
               icon={<Image src="/icons/icons1.svg" alt="" width={32} height={32} />}
               value={t.about.experience.value}
               label={t.about.experience.label}
-              className="w-full sm:max-w-[343px] md:w-[180px] lg:w-[190px] h-[237px] md:h-[200px] lg:h-[388px] z-30 lg:z-30 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-full md:col-span-1 lg:w-[190px] h-[237px] md:h-[220px] lg:h-[388px] z-30 lg:z-30 flex-shrink-0"
             />
             <StatCard
               variant="white"
               icon={<Image src="/icons/icons2.svg" alt="" width={32} height={32} />}
               value={t.about.deals.value}
               label={t.about.deals.label}
-              className="w-full sm:max-w-[343px] md:w-[270px] lg:w-[300px] h-[237px] md:h-[200px] lg:h-[388px] z-20 lg:z-20 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-full md:col-span-1 lg:w-[300px] h-[237px] md:h-[220px] lg:h-[388px] z-20 lg:z-20 flex-shrink-0"
             />
             <StatCard
               variant="green"
               icon={<Image src="/icons/icons3.svg" alt="" width={32} height={32} />}
               value={t.about.savings.value}
               label={t.about.savings.label}
-              className="w-full sm:max-w-[343px] md:w-[330px] lg:w-[368px] h-[237px] md:h-[200px] lg:h-[388px] z-10 lg:z-10 flex-shrink-0"
+              className="w-full sm:max-w-[343px] md:w-full md:col-span-2 lg:w-[368px] h-[237px] md:h-[240px] lg:h-[388px] z-10 lg:z-10 flex-shrink-0"
             />
           </div>
         </div>

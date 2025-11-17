@@ -110,10 +110,20 @@ export function ReviewsSection() {
   // Get current review's rating
   const currentRating = reviews[currentIndex]?.rating || 5;
 
-  // Force a controlled line break on large screens so the title stays on two lines
-  const titleParts = (t.reviews.title || "").split(" ");
-  const firstWord = titleParts.shift() || "";
-  const restTitle = titleParts.join(" ");
+  // Force a controlled line break on specific ranges. Robustly split on the first whitespace
+  // (handles regular spaces, NBSP and narrow spaces). If none found, split roughly in half.
+  const rawTitle = t.reviews.title || "";
+  const splitMatch = rawTitle.match(/^(.*?)[\s\u00A0\u202F\u2009\u2007]+(.*)$/);
+  let firstWord: string;
+  let restTitle: string;
+  if (splitMatch) {
+    firstWord = (splitMatch[1] || "").trim();
+    restTitle = (splitMatch[2] || "").trim();
+  } else {
+    const mid = Math.max(1, Math.ceil(rawTitle.length / 2));
+    firstWord = rawTitle.slice(0, mid).trim();
+    restTitle = rawTitle.slice(mid).trim();
+  }
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
@@ -136,10 +146,13 @@ export function ReviewsSection() {
               <span className="text-[14px] leading-7 font-medium">{t.reviews.tag}</span>
             </div>
 
-            {/* Title: mobile 46/52, always 2 lines on lg+ */}
+            {/* Title: mobile 46/52, force 2 lines on 770-1002px and on lg+ */}
             <h2 className="text-[46px] leading-[52px] md:text-[52px] md:leading-[1.1] lg:text-[68px] xl:text-[82px] font-medium mb-4 md:mb-6">
               <span className="lg:whitespace-nowrap">{firstWord}</span>
+              {/* Existing break: visible on mobile and lg+ */}
               <br className="block md:hidden lg:block" />
+              {/* Additional break only for 768px-1023px (tablet) viewport widths */}
+              <br className="hidden min-[768px]:block min-[1024px]:hidden" />
               <span className="lg:whitespace-nowrap">{restTitle}</span>
             </h2>
 

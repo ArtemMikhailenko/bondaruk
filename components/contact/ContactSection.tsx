@@ -106,11 +106,11 @@ export function ContactSection() {
         <div className="px- md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-[100px] xl:right-[150px] 2xl:right-[240px] max-w-full relative">
           {/* Wrapper to place form card and desktop socials side-by-side */}
           <div className="md:flex md:items-center md:gap-6 lg:gap-8">
-            <div className="pt-6 md:pt-0 md:bg-white md:rounded-[24px] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] md:p-8 2xl:p-[60px]">
-            <h2 className="text-[22px] md:text-[28px] 2xl:text-[35px] font-bold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[36px] 2xl:leading-[43px] px-4 md:px-0 whitespace-nowrap md:whitespace-normal">
+            <div className="pt-6 md:pt-0 md:bg-white md:rounded-[24px] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] md:p-6 lg:p-8 2xl:p-[60px]">
+            <h2 className="text-[22px] md:text-[24px] lg:text-[28px] 2xl:text-[35px] font-bold mb-[12px] md:mb-[16px] leading-[26px] md:leading-[32px] lg:leading-[36px] 2xl:leading-[43px] px-4 md:px-0">
               {t.contactSection.title}
             </h2>
-            <p className="text-[14px] md:text-[16px] 2xl:text-[18px] leading-[20px] md:leading-[24px] 2xl:leading-[26px] mb-[24px] md:mb-[30px] px-4 md:px-0">
+            <p className="text-[14px] md:text-[15px] lg:text-[16px] 2xl:text-[18px] leading-[20px] md:leading-[22px] lg:leading-[24px] 2xl:leading-[26px] mb-[24px] md:mb-[26px] lg:mb-[30px] px-4 md:px-0">
               {t.contactSection.subtitleStart}{" "}
               <span className="font-bold">{t.contactSection.subtitleBold}</span>
               <br />
@@ -122,28 +122,28 @@ export function ContactSection() {
             <form className="px-4 py-2 md:px-0 md:py-0">
               {/* Name input */}
               <div className="mb-[12px]">
-                <label className="block text-[12px] md:text-[14px] leading-[12px] md:leading-[18px] font-medium text-[#1D1918]/60 mb-2">
+                <label className="block text-[12px] md:text-[13px] lg:text-[14px] leading-[12px] md:leading-[16px] lg:leading-[18px] font-medium text-[#1D1918]/60 mb-2">
                   {t.contactSection.nameLabel}
                 </label>
-                <div className="w-full md:w-[500px] h-[52px] md:h-[56px] bg-white md:bg-transparent border border-[#D8D8D8] rounded-[14px] md:rounded-lg px-4 md:px-[18px] flex items-center">
+                <div className="w-full md:w-[320px] lg:w-[400px] 2xl:w-[500px] h-[52px] md:h-[54px] lg:h-[56px] bg-white md:bg-transparent border border-[#D8D8D8] rounded-[14px] md:rounded-lg px-4 md:px-[18px] flex items-center">
                   <input
                     type="text"
                     placeholder={t.contactSection.namePlaceholder}
-                    className="w-full text-[14px] md:text-base outline-none text-[#444444]/64 placeholder:text-[#444444]/64"
+                    className="w-full text-[14px] md:text-[15px] lg:text-base outline-none text-[#444444]/64 placeholder:text-[#444444]/64"
                   />
                 </div>
               </div>
 
               {/* Phone input */}
-              <div className="mb-[20px] md:mb-6">
-                <label className="block text-[12px] md:text-[14px] leading-[12px] md:leading-[18px] font-medium text-[#1D1918]/60 mb-2">
+              <div className="mb-[20px] md:mb-5 lg:mb-6">
+                <label className="block text-[12px] md:text-[13px] lg:text-[14px] leading-[12px] md:leading-[16px] lg:leading-[18px] font-medium text-[#1D1918]/60 mb-2">
                   {t.contactSection.phoneLabel}
                 </label>
-                <div className="w-full md:w-[500px] h-[52px] md:h-[56px] bg-white md:bg-transparent border border-[#D8D8D8] rounded-[14px] md:rounded-lg px-4 md:px-[18px] flex items-center">
+                <div className="w-full md:w-[320px] lg:w-[400px] 2xl:w-[500px] h-[52px] md:h-[54px] lg:h-[56px] bg-white md:bg-transparent border border-[#D8D8D8] rounded-[14px] md:rounded-lg px-4 md:px-[18px] flex items-center">
                   <input
                     type="tel"
                     placeholder={t.contactSection.phonePlaceholder}
-                    className="w-full text-[14px] md:text-base outline-none text-[#444444]/64 placeholder:text-[#444444]/64"
+                    className="w-full text-[14px] md:text-[15px] lg:text-base outline-none text-[#444444]/64 placeholder:text-[#444444]/64"
                   />
                 </div>
               </div>
@@ -151,7 +151,7 @@ export function ContactSection() {
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full md:w-[500px] h-[52px] md:h-[62px] bg-[#FCC71C] md:bg-gradient-to-b md:from-[#FFCF2B] md:to-[#F7B91E] rounded-[55px] text-[14px] md:text-base font-bold text-[#1D1918] hover:opacity-90 transition-opacity flex items-center justify-center mb-6 md:mb-0"
+                className="w-full md:w-[320px] lg:w-[400px] 2xl:w-[500px] h-[52px] md:h-[58px] lg:h-[62px] bg-[#FCC71C] md:bg-gradient-to-b md:from-[#FFCF2B] md:to-[#F7B91E] rounded-[55px] text-[14px] md:text-[15px] lg:text-base font-bold text-[#1D1918] hover:opacity-90 transition-opacity flex items-center justify-center mb-6 md:mb-0"
               >
                 {t.contactSection.submit}
               </button>
@@ -159,27 +159,27 @@ export function ContactSection() {
             </div>
 
             {/* Desktop social media buttons – to the right of the card, inside container */}
-            <div className="hidden md:flex flex-col gap-4 ml-4 lg:ml-6 self-stretch justify-center">
+            <div className="hidden md:flex flex-col gap-3 lg:gap-4 ml-3 lg:ml-6 self-stretch justify-center">
               {/* Telegram */}
-              <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <a href="#" className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="lg:w-6 lg:h-6">
                   <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.99C15.37 16.74 15.09 16.99 14.83 17.02C14.25 17.07 13.81 16.64 13.25 16.27C12.37 15.69 11.87 15.33 11.02 14.77C10.03 14.12 10.67 13.76 11.24 13.18C11.39 13.03 13.95 10.7 14 10.49C14.0069 10.4582 14.006 10.4252 13.9973 10.3938C13.9886 10.3624 13.9724 10.3337 13.95 10.31C13.89 10.26 13.81 10.28 13.74 10.29C13.65 10.31 12.25 11.24 9.52 13.08C9.12 13.35 8.76 13.49 8.44 13.48C8.08 13.47 7.4 13.28 6.89 13.11C6.26 12.91 5.77 12.8 5.81 12.45C5.83 12.27 6.08 12.09 6.55 11.9C9.47 10.63 11.41 9.79 12.38 9.39C15.16 8.23 15.73 8.03 16.11 8.03C16.19 8.03 16.38 8.05 16.5 8.15C16.6 8.23 16.63 8.34 16.64 8.42C16.63 8.48 16.65 8.66 16.64 8.8Z" fill="#1D1918"/>
                 </svg>
               </a>
 
               {/* Viber */}
-              <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Image src="/icons/viber.svg" alt="Viber" width={24} height={24} />
+              <a href="#" className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
+                <Image src="/icons/viber.svg" alt="Viber" width={20} height={20} className="lg:w-6 lg:h-6" />
               </a>
 
               {/* Instagram */}
-              <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Image src="/icons/instagram.svg" alt="Instagram" width={24} height={24} />
+              <a href="#" className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
+                <Image src="/icons/instagram.svg" alt="Instagram" width={20} height={20} className="lg:w-6 lg:h-6" />
               </a>
 
               {/* Facebook */}
-              <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
-                <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
+              <a href="#" className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-b from-[#FFCF2B] to-[#F7B91E] flex items-center justify-center hover:opacity-90 transition-opacity">
+                <Image src="/icons/facebook.svg" alt="Facebook" width={20} height={20} className="lg:w-6 lg:h-6" />
               </a>
             </div>
           </div>
