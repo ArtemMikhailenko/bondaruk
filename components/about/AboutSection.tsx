@@ -40,8 +40,8 @@ function StatCard({
           />
         </div>
         
-        <div className={`relative z-10 ml-8 md:ml-[82px] ${topPadding}`}>{icon}</div>
-        <div className="relative z-10 ml-8 md:ml-[82px] mb-[30px] mt-auto">
+        <div className={`relative z-10 ml-8 md:ml-[54px] ${topPadding}`}>{icon}</div>
+        <div className="relative z-10 ml-8 md:ml-[54px] mb-[30px] mt-auto">
           <div className="text-[64px] leading-[1.2] font-semibold">
             {value.includes('%') ? (
               <>
@@ -58,7 +58,9 @@ function StatCard({
     );
   }
   
-  // Білі картки - однаковий відступ зліва для всіх на мобільних
+  // Білі картки - різні відступи на десктопі залежно від index
+  const leftMargin = index === 0 ? "ml-8 md:ml-[32px]" : "ml-8 md:ml-[64px]";
+  
   return (
     <div 
       className={`rounded-[16px] lg:rounded-[22px] bg-white flex flex-col ${className}`}
@@ -66,8 +68,8 @@ function StatCard({
         boxShadow: '0px 4px 41.5px rgba(87, 87, 87, 0.08)'
       }}
     >
-      <div className={`ml-8 md:ml-[84px] ${topPadding}`}>{icon}</div>
-      <div className="ml-8 md:ml-[84px] mb-[30px] mt-auto">
+      <div className={`${leftMargin} ${topPadding}`}>{icon}</div>
+      <div className={`${leftMargin} mb-[30px] mt-auto`}>
         <div className="text-[60px] leading-[1.2] font-semibold">
           {value.includes('%') ? (
             <>

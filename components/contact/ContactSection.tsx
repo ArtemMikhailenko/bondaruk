@@ -40,7 +40,7 @@ export function ContactSection() {
         </svg>
       </div>
       {/* Background image - слева от женщины */}
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-[404px] md:inset-0 md:-left-32 md:right-1/2 md:h-auto">
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-[404px] md:inset-0 md:-left-32 md:right-1/2 md:h-auto z-[1]">
         <Image
           src="/images/hero-bg.png"
           alt=""
@@ -60,9 +60,30 @@ export function ContactSection() {
               "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 70%, rgba(255,255,255,1) 100%)",
           }}
         />
+         {/* <div className="pointer-events-none absolute top-0 left-0 right-0 h-[404px] max-w-[50vw] md:inset-0 md:left-20 md:right-0 md:h-auto z-[50]">
+          <Image
+            src="/images/dym.png"
+            alt=""
+            fill
+            sizes="60vw"
+            className="object-cover object-top md:object-left"
+            priority
+          />
+        </div> */}
       </div>
 
       <div className="relative z-10 max-w-[1920px] mx-auto px-0 md:px-6 lg:px-8 2xl:px-8 h-full">
+        {/* Dim overlay - дає ефект диму зверху і знизу - переміщено всередину для правильного z-index */}
+        {/* <div className="pointer-events-none absolute top-0 left-0 right-0 h-[404px] max-w-[50vw] md:inset-0 md:left-20 md:right-0 md:h-auto z-[50]">
+          <Image
+            src="/images/dym.png"
+            alt=""
+            fill
+            sizes="60vw"
+            className="object-cover object-top md:object-left"
+            priority
+          />
+        </div> */}
         {/* Mobile photo section */}
         <div className="md:hidden relative w-full h-[404px] overflow-visible">
           {/* Main photo with all built-in cards */}
@@ -100,10 +121,20 @@ export function ContactSection() {
               background: 'linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 40%, transparent 100%)'
             }}
           />
+           {/* <div className="pointer-events-none absolute top-0 left-0 right-0 h-[404px] max-w-[50vw] md:inset-0 md:left-20 md:right-0 md:h-auto z-[50]">
+          <Image
+            src="/images/dym.png"
+            alt=""
+            fill
+            sizes="60vw"
+            className="object-cover object-top md:object-left"
+            priority
+          />
+        </div> */}
         </div>
 
         {/* Form section */}
-        <div className="px- md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-[100px] xl:right-[150px] 2xl:right-[240px] max-w-full relative">
+        <div className="px-0 md:px-0 md:absolute md:right-6 md:top-[106px] lg:right-8 xl:right-[100px] 2xl:right-[240px] max-w-full relative z-[30] md:max-w-[460px] lg:max-w-[500px] xl:max-w-none">
           {/* Wrapper to place form card and desktop socials side-by-side */}
           <div className="md:flex md:items-center md:gap-6 lg:gap-8">
             <div className="pt-6 md:pt-0 md:bg-white md:rounded-[24px] md:shadow-[0_4px_41.5px_rgba(87,87,87,0.08)] md:p-6 lg:p-8 2xl:p-[60px]">
@@ -119,7 +150,7 @@ export function ContactSection() {
             </p>
 
             {/* Form */}
-            <form className="px-4 py-2 md:px-0 md:py-0">
+            <form className="px-4 py-2 md:px-0 md:py-0 z-[30] relative">
               {/* Name input */}
               <div className="mb-[12px]">
                 <label className="block text-[12px] md:text-[13px] lg:text-[14px] leading-[12px] md:leading-[16px] lg:leading-[18px] font-medium text-[#1D1918]/60 mb-2">

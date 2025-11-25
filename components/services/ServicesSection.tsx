@@ -53,11 +53,11 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
       {/* Bottom overlay with blur */}
   <div className="absolute left-2 right-2 bottom-2 md:left-3 md:right-3 md:bottom-3 h-[90px] md:h-[100px] lg:h-[109px] rounded-2xl service-card-overlay backdrop-blur-[5px] bg-[#1D1918]/70 flex items-center justify-between px-4 md:px-5 lg:px-6 pointer-events-none">
         {/* Text */}
-        <div className="flex flex-col gap-[2px] md:gap-[3px]">
+        <div className="flex flex-col gap-0 md:gap-0">
           <div className="text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-[1.1] md:leading-tight font-semibold tracking-tight md:tracking-normal">
             {title}
           </div>
-          <div className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] leading-[1.1] md:leading-tight tracking-tight md:tracking-normal -mt-[2px] md:mt-0">
+          <div className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] leading-[1.1] md:leading-tight tracking-tight md:tracking-normal -mt-[2px] md:-mt-[3px]">
             {subtitle}
           </div>
         </div>

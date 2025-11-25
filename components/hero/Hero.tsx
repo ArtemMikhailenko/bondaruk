@@ -28,10 +28,9 @@ export function Hero() {
           className="absolute inset-0 rounded-bl-[180px]"
           style={{
             background:
-              "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 55%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%)",
+              "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 55%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%), radial-gradient(circle at left bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 15%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0) 50%)",
           }}
         />
-        {/* Bottom fade removed as per latest request */}
       </div>
 
       <div className="site-container pt-4 md:pt-6 lg:pt-8 xl:pt-4 relative z-10">
@@ -101,7 +100,7 @@ export function Hero() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%)",
+                      "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,1) 100%)",
                   }}
                 />
               </div>
