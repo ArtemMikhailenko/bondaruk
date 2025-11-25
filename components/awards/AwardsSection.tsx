@@ -73,10 +73,10 @@ export function AwardsSection() {
               {t.awards.awardsTitle}
             </h3>
             
-            <div className="flex items-center justify-center gap-[18px] md:gap-6 lg:gap-[26px] flex-nowrap lg:flex-nowrap">
+            <div className="flex items-center justify-center gap-[10px] md:gap-6 lg:gap-[26px] flex-nowrap lg:flex-nowrap">
               {/* Silver Partner */}
               <div className="flex flex-col items-center gap-3">
-                <div className="w-[96px] h-[96px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
+                <div className="w-[104px] h-[104px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
                   <Image
                     src="/images/silver.png"
                     alt="Silver Partner"
@@ -92,7 +92,7 @@ export function AwardsSection() {
 
               {/* Gold Partner */}
               <div className="flex flex-col items-center gap-3">
-                <div className="w-[96px] h-[96px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
+                <div className="w-[104px] h-[104px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
                   <Image
                     src="/images/gold.png"
                     alt="Gold Partner"
@@ -108,7 +108,7 @@ export function AwardsSection() {
 
               {/* Platinum Partner */}
               <div className="flex flex-col items-center gap-3">
-                <div className="w-[96px] h-[96px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
+                <div className="w-[104px] h-[104px] md:w-[140px] md:h-[140px] lg:w-[148px] lg:h-[148px] rounded-xl md:rounded-2xl overflow-hidden">
                   <Image
                     src="/images/platinum.png"
                     alt="Platinum Partner"

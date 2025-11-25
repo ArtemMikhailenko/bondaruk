@@ -10,16 +10,16 @@ function AvatarGroup({ variant = "default" }: { variant?: "default" | "withCheck
         <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full bg-[#FCC71C] flex items-center justify-center shrink-0 overflow-hidden relative">
           <Image src="/images/ruki.png" alt="" width={55} height={55} className="object-cover w-full h-full" />
         </div>
-        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
           <Image src="/images/room1.png" alt="" fill className="object-cover" />
         </div>
-        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
           <Image src="/images/room2.png" alt="" fill className="object-cover" />
         </div>
-        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
           <Image src="/images/room3.png" alt="" fill className="object-cover" />
         </div>
-        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+        <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
           <Image src="/images/room4.png" alt="" fill className="object-cover" />
         </div>
       </div>
@@ -28,20 +28,20 @@ function AvatarGroup({ variant = "default" }: { variant?: "default" | "withCheck
 
   return (
     <div className="flex -space-x-2">
-      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
         <Image src="/images/face1.png" alt="" fill className="object-cover" />
       </div>
-      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
         <Image src="/images/face2.png" alt="" fill className="object-cover" />
       </div>
-      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
         <Image src="/images/face3.png" alt="" fill className="object-cover" />
       </div>
-      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full border-2 border-white overflow-hidden relative shrink-0">
+      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full overflow-hidden relative shrink-0">
         <Image src="/images/face4.png" alt="" fill className="object-cover" />
       </div>
-      <div className="w-8 h-8 md:w-[55px] md:h-[55px] flex items-center justify-center ml-2 shrink-0 relative">
-        <Image src="/icons/google.svg" alt="Google" width={32} height={32} className="md:w-[40px] md:h-[40px]" />
+      <div className="w-9 h-9 md:w-[55px] md:h-[55px] rounded-full bg-white  flex items-center justify-center shrink-0 relative">
+        <Image src="/icons/google.png" alt="Google" width={30} height={30} className="md:w-[32px] md:h-[32px]" />
       </div>
     </div>
   );

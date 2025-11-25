@@ -53,11 +53,11 @@ function ServiceCard({ title, subtitle, imageSrc, href = "#" }: ServiceCardProps
       {/* Bottom overlay with blur */}
   <div className="absolute left-2 right-2 bottom-2 md:left-3 md:right-3 md:bottom-3 h-[90px] md:h-[100px] lg:h-[109px] rounded-2xl service-card-overlay backdrop-blur-[5px] bg-[#1D1918]/70 flex items-center justify-between px-4 md:px-5 lg:px-6 pointer-events-none">
         {/* Text */}
-        <div className="flex flex-col gap-[3px]">
-          <div className="text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-tight font-semibold">
+        <div className="flex flex-col gap-[2px] md:gap-[3px]">
+          <div className="text-white text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-[1.1] md:leading-tight font-semibold tracking-tight md:tracking-normal">
             {title}
           </div>
-          <div className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] leading-tight">
+          <div className="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] leading-[1.1] md:leading-tight tracking-tight md:tracking-normal -mt-[2px] md:mt-0">
             {subtitle}
           </div>
         </div>
@@ -171,9 +171,9 @@ export function ServicesSection() {
         {/* Header */}
         <div className="flex items-end justify-between mb-6 md:mb-8 lg:mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white px-[18px] py-1 mb-3 md:mb-4">
-              <GradientDot />
-              <span className="text-[14px] leading-7 font-medium">{t.services.tag}</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF8F3] px-[14px] md:px-[18px] py-1 mb-3 md:mb-4">
+              <span className="inline-block h-1 w-1 md:h-2 md:w-2 rounded-full bg-gradient-to-b from-[#31AA5A] to-[#258A49]" />
+              <span className="text-[10px] md:text-[14px] leading-4 md:leading-7 font-medium text-[#141414]">{t.services.tag}</span>
             </div>
             <h2 className="text-[46px] leading-[52px] md:text-[52px] md:leading-[1.08] lg:text-[68px] lg:leading-[1.08] xl:text-[82px] xl:leading-[1.08] font-medium">
               {t.services.title}

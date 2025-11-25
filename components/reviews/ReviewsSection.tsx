@@ -80,9 +80,9 @@ function StarSvg({ filled, fillPercent, size = 24, className = "" }: { filled?: 
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center gap-[2px]">
       {[1, 2, 3, 4, 5].map((star) => (
-        <StarSvg key={star} filled={star <= Math.floor(rating)} size={24} />
+        <StarSvg key={star} filled={star <= Math.floor(rating)} size={12} className="w-3 h-3 md:w-6 md:h-6" />
       ))}
     </div>
   );
@@ -99,6 +99,8 @@ export function ReviewsSection() {
   const { t } = useLocale();
   const [currentIndex, setCurrentIndex] = useState(0);
   const { openConsultation } = useModal();
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const reviews: Review[] = t.reviews.items.map((item, index) => ({
     id: index + 1,
@@ -107,8 +109,8 @@ export function ReviewsSection() {
     rating: item.rating,
   }));
 
-  // Get current review's rating
-  const currentRating = reviews[currentIndex]?.rating || 5;
+  // Fixed realtor rating
+  const currentRating = 4.9;
 
   // Force a controlled line break on specific ranges. Robustly split on the first whitespace
   // (handles regular spaces, NBSP and narrow spaces). If none found, split roughly in half.
@@ -133,6 +135,33 @@ export function ReviewsSection() {
     setCurrentIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
   };
 
+  // Minimum swipe distance (in px) to trigger a change
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrev();
+    }
+  };
+
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#FCFCFC]">
       <div className="site-container">
@@ -141,9 +170,9 @@ export function ReviewsSection() {
           {/* Left column - Header and CTA */}
           <div>
             {/* Tag */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF8F3] px-[18px] py-1 mb-4 md:mb-6">
-              <GradientDot />
-              <span className="text-[14px] leading-7 font-medium">{t.reviews.tag}</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF8F3] px-[14px] md:px-[18px] py-1 mb-4 md:mb-6">
+              <span className="inline-block h-1 w-1 md:h-2 md:w-2 rounded-full bg-gradient-to-b from-[#31AA5A] to-[#258A49]" />
+              <span className="text-[10px] md:text-[14px] leading-4 md:leading-7 font-medium text-[#141414]">{t.reviews.tag}</span>
             </div>
 
             {/* Title: mobile 46/52, force 2 lines on 770-1002px and on lg+ */}
@@ -158,7 +187,7 @@ export function ReviewsSection() {
 
             {/* Subtitle */}
             <p className="text-[14px] md:text-[18px] leading-[24px] md:leading-[26px] mb-6 md:mb-8">
-              Ваші слова — найкраще <span className="font-bold">підтвердження моєї роботи</span>
+              Ваші слова — найкраще <span className="font-bold">підтвердження<br className="md:hidden" /> моєї роботи</span>
             </p>
 
             {/* CTA Button */}
@@ -179,7 +208,12 @@ export function ReviewsSection() {
           {/* Right column - Reviews carousel */}
           <div className="relative">
             {/* Cards stack */}
-            <div className="relative h-[400px] md:h-[450px] lg:h-[474px]">
+            <div 
+              className="relative h-[300px] md:h-[450px] lg:h-[474px]"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {reviews.map((review, index) => {
                 const position = (index - currentIndex + reviews.length) % reviews.length;
                 const isActive = position === 0;
@@ -199,7 +233,7 @@ export function ReviewsSection() {
                         : "hidden md:block md:z-0 md:opacity-0 md:pointer-events-none"
                     }`}
                   >
-                    <div className="bg-white border border-[#F0F0F0] rounded-[20px] md:rounded-[24px] p-8 md:p-12 lg:p-16 panel-shadow h-[400px] md:h-[450px] lg:h-[474px] flex flex-col">
+                    <div className="bg-white border border-[#F0F0F0] rounded-[20px] md:rounded-[24px] p-8 md:p-12 lg:p-16 panel-shadow h-[300px] md:h-[450px] lg:h-[474px] flex flex-col">
                       {/* Logo */}
                       <div className="mb-6 md:mb-8">
                         <Image
@@ -212,7 +246,7 @@ export function ReviewsSection() {
                       </div>
 
                       {/* Review text */}
-                      <p className="text-[15px] md:text-[16px] lg:text-[18px] leading-[22px] md:leading-[24px] lg:leading-[26px] text-[#181818] font-light mb-auto whitespace-pre-line">
+                      <p className="text-[12px] md:text-[16px] lg:text-[18px] leading-[18px] md:leading-[24px] lg:leading-[26px] text-[#1D1918] font-light mb-auto break-words">
                         {review.text}
                       </p>
 
@@ -220,7 +254,7 @@ export function ReviewsSection() {
                       <div className="flex items-center justify-between mt-6 md:mt-8">
                         <div className="flex items-center gap-3 md:gap-4">
                           {/* Avatar */}
-                          <div className="w-[40px] h-[40px] md:w-[45px] md:h-[45px] rounded-full overflow-hidden flex-shrink-0">
+                          <div className="w-[32px] h-[32px] md:w-[45px] md:h-[45px] rounded-full overflow-hidden flex-shrink-0">
                             <Image
                               src="/images/rewie-photo.png"
                               alt={review.author}
@@ -231,17 +265,17 @@ export function ReviewsSection() {
                           </div>
                           
                           <div>
-                            <p className="text-[14px] md:text-[16px] leading-[20px] md:leading-[23px] font-bold text-[#434343] whitespace-nowrap">
+                            <p className="text-[12px] md:text-[16px] leading-3 md:leading-[23px] font-bold text-[#434343] whitespace-nowrap mb-1">
                               {review.author}
                             </p>
-                            <div className="scale-90 md:scale-100 origin-left">
+                            <div>
                               <StarRating rating={review.rating} />
                             </div>
                           </div>
                         </div>
 
                         {/* Google icon */}
-                        <div className="w-[40px] h-[40px] md:w-[46px] md:h-[46px] flex-shrink-0">
+                        <div className="w-[32px] h-[32px] md:w-[46px] md:h-[46px] flex-shrink-0">
                           <Image
                             src="/icons/google.svg"
                             alt="Google"
@@ -262,7 +296,7 @@ export function ReviewsSection() {
         {/* Rating, Progress bar and Navigation - full width at bottom */}
         <div className="mt-8 md:mt-12">
           {/* Progress bar - top on mobile, inline on desktop */}
-          <div className="md:hidden flex-1 h-[6px] bg-[#E5E5E5] rounded-full overflow-hidden mb-4">
+          <div className="md:hidden flex-1 h-[3px] bg-[#E5E5E5] rounded-full overflow-hidden mb-4">
             <div
               className="h-full bg-gradient-to-r from-[#31AA5A] to-[#258A49] transition-all duration-500"
               style={{ width: `${((currentIndex + 1) / reviews.length) * 100}%` }}

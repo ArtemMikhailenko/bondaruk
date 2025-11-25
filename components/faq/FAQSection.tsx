@@ -43,13 +43,13 @@ export function FAQSection() {
           {/* Left column - Header */}
           <div>
             {/* Tag */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF8F3] px-[18px] py-1 mb-4 md:mb-6">
-              <GradientDot />
-              <span className="text-[14px] leading-7 font-medium">{t.faq.tag}</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF8F3] px-[14px] md:px-[18px] py-1 mb-4 md:mb-6">
+              <span className="inline-block h-1 w-1 md:h-2 md:w-2 rounded-full bg-gradient-to-b from-[#31AA5A] to-[#258A49]" />
+              <span className="text-[10px] md:text-[14px] leading-4 md:leading-7 font-medium text-[#1D1918]">{t.faq.tag}</span>
             </div>
 
             {/* Title */}
-            <h2 className="text-[36px] md:text-[52px] lg:text-[68px] xl:text-[82px] leading-[1.1] font-medium mb-4 md:mb-6">
+            <h2 className="text-[46px] md:text-[52px] lg:text-[68px] xl:text-[82px] leading-[52px] md:leading-[1.1] font-medium mb-4 md:mb-6">
               {t.faq.title}
             </h2>
 
@@ -90,18 +90,18 @@ export function FAQSection() {
                   
                   {/* Toggle button */}
                   <div
-                    className={`w-[40px] h-[40px] md:w-[46px] md:h-[46px] rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                    className={`w-[28px] h-[28px] md:w-[46px] md:h-[46px] rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                       openIndex === index
                         ? "bg-[#1D1918]"
                         : "bg-gradient-to-b from-[#31AA5A] to-[#258A49]"
                     }`}
                   >
                     {openIndex === index ? (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
                         <path d="M18 12H6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     ) : (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="md:w-6 md:h-6">
                         <path d="M12 6v12M6 12h12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     )}
