@@ -104,6 +104,7 @@ export function Hero() {
                   }}
                 />
               </div>
+              {/* Desktop photo */}
               <Image
                 src="/images/hero-photo.png"
                 alt="Olena Bondaruk"
@@ -111,7 +112,17 @@ export function Hero() {
                 height={916}
                 priority
                 sizes="(max-width: 1024px) 90vw, 772px"
-                className="relative z-10 w-full h-auto object-cover"
+                className="relative z-10 w-full h-auto object-cover hidden lg:block"
+              />
+              {/* Mobile photo */}
+              <Image
+                src="/images/hero-photo-mob.png"
+                alt="Olena Bondaruk"
+                width={772}
+                height={916}
+                priority
+                sizes="90vw"
+                className="relative z-10 w-full h-auto object-cover lg:hidden"
               />
 
               {/* Floating reviews card */}

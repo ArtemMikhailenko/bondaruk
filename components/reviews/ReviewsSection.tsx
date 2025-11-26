@@ -19,61 +19,47 @@ function GradientDot() {
 
 
 function StarSvg({ filled, fillPercent, size = 24, className = "" }: { filled?: boolean; fillPercent?: number; size?: number; className?: string }) {
-  const Outline = (
-    <path
-      d="M12.3217 4.67849L8.30688 4.0867L8.19732 4.07055L8.14881 3.97097L6.35254 0.280796L6.5412 0.188965L6.35199 0.279646C6.3465 0.268179 6.33806 0.258827 6.32795 0.252422C6.31788 0.246032 6.30642 0.242757 6.29488 0.242757C6.28334 0.242757 6.27188 0.246032 6.26177 0.252422C6.25166 0.258827 6.24327 0.268179 6.23777 0.279646L6.23718 0.28083L4.44007 3.971L4.3916 4.07056L4.28204 4.0867L0.266997 4.67854M12.3217 4.67849C12.3218 4.67854 12.3217 4.67849 12.3217 4.67849ZM12.3217 4.67849C12.3336 4.6803 12.3451 4.68546 12.3546 4.69364C12.3642 4.70183 12.3716 4.71282 12.3757 4.72549C12.3797 4.73816 12.3802 4.75184 12.377 4.76481C12.3739 4.77782 12.3672 4.78936 12.3582 4.7983L9.45311 7.67012L9.37552 7.74679L9.39373 7.8543L10.0796 11.9101L10.0797 11.9108C10.082 11.9239 10.0805 11.9373 10.0757 11.9494C10.0708 11.9616 10.0628 11.9718 10.0528 11.9791C10.0429 11.9864 10.0314 11.9906 10.0196 11.9915C10.0078 11.9924 9.99594 11.9899 9.98528 11.9843M9.98528 11.9843C9.9852 11.9842 9.98532 11.9843 9.98528 11.9843ZM9.98528 11.9843L6.39358 10.0698L6.29484 10.0172L6.19614 10.0698L2.60441 11.9849C2.59373 11.9906 2.58172 11.9931 2.56995 11.9922C2.55817 11.9914 2.54667 11.9872 2.53676 11.9799C2.52684 11.9726 2.51885 11.9624 2.514 11.9504C2.50915 11.9382 2.50773 11.9248 2.50999 11.9118L2.51013 11.911L3.19603 7.8543L3.21421 7.74675L3.13663 7.67008L0.230775 4.79834C0.22172 4.7894 0.215052 4.77782 0.211883 4.76481C0.208712 4.75184 0.209201 4.73816 0.213267 4.72549C0.217329 4.71282 0.224718 4.70183 0.234309 4.69364C0.24383 4.6855 0.255167 4.68034 0.266997 4.67854M0.266997 4.67854C0.267062 4.67854 0.266933 4.67858 0.266997 4.67854Z"
-      stroke="#F4F4F4"
-      strokeWidth="0.419631"
-    />
-  );
+  const starPath = "M15.0205 7.58887L15.1152 7.78223L15.2305 8.01953L15.4912 8.05859L15.7051 8.08984L22.8037 9.13574L17.6602 14.2217L17.5088 14.3711L17.3232 14.5537L17.3672 14.8105L17.4023 15.0205L18.6143 22.1865L12.2852 18.8125L12.0928 18.71L11.8574 18.584L11.6221 18.71L11.4297 18.8125L5.09961 22.1865L6.31152 15.0195L6.34766 14.8105L6.39062 14.5537L6.20605 14.3711L6.05469 14.2217L0.908203 9.13574L8.00781 8.08984L8.22168 8.05859L8.48242 8.01953L8.59766 7.78223L8.69238 7.58887L11.8564 1.08887L15.0205 7.58887Z";
 
-  const Filled = (
-    <>
-      <path d="M8.14881 3.97097L8.19732 4.07055L8.30688 4.0867L12.3217 4.67849C12.3217 4.67849 12.3218 4.67854 12.3217 4.67849C12.3336 4.6803 12.3451 4.68546 12.3546 4.69364C12.3642 4.70183 12.3716 4.71282 12.3757 4.72549C12.3797 4.73816 12.3802 4.75184 12.377 4.76481C12.3739 4.77782 12.3672 4.78936 12.3582 4.7983L9.4531 7.67012L9.37551 7.74679L9.39373 7.8543L10.0796 11.9101L10.0797 11.9108C10.082 11.9239 10.0805 11.9373 10.0757 11.9494C10.0708 11.9616 10.0628 11.9718 10.0528 11.9791C10.0429 11.9864 10.0314 11.9906 10.0196 11.9915C10.0078 11.9924 9.99594 11.9899 9.98528 11.9843C9.9852 11.9842 9.98532 11.9843 9.98528 11.9843L6.39358 10.0698L6.29484 10.0172L6.19614 10.0698L2.60441 11.9849C2.59373 11.9906 2.58172 11.9931 2.56995 11.9922C2.55817 11.9914 2.54667 11.9872 2.53676 11.9799C2.52684 11.9726 2.51885 11.9624 2.514 11.9504C2.50915 11.9382 2.50773 11.9248 2.50999 11.9118L2.51013 11.911L3.19603 7.8543L3.21421 7.74675L3.13663 7.67008L0.230775 4.79834C0.22172 4.7894 0.215052 4.77782 0.211883 4.76481C0.208712 4.75184 0.209201 4.73816 0.213267 4.72549C0.217329 4.71282 0.224718 4.70183 0.234309 4.69364C0.24383 4.6855 0.255167 4.68034 0.266997 4.67854L4.28204 4.0867L4.3916 4.07056L4.44007 3.971L6.23718 0.28083L6.23777 0.279646C6.24327 0.268179 6.25166 0.258827 6.26177 0.252422C6.27188 0.246032 6.28334 0.242757 6.29488 0.242757C6.30642 0.242757 6.31788 0.246032 6.32795 0.252422C6.33806 0.258827 6.3465 0.268179 6.35199 0.279646L6.5412 0.188965L6.35254 0.280796L8.14881 3.97097Z" fill="#FCC71C" />
-      {Outline}
-    </>
-  );
-
-  // Fractional fill rendering by overlaying a clipped filled star above an outline
+  // Fractional fill rendering
   if (typeof fillPercent === "number" && fillPercent > 0 && fillPercent < 1) {
+    const clipId = `star-clip-${Math.random().toString(36).substr(2, 9)}`;
+    const percent = Math.max(0, Math.min(1, fillPercent)) * 100;
+    
     return (
-      <span className={`relative inline-block ${className}`} style={{ width: size, height: size }}>
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 13 13"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden
-        >
-          {Outline}
-        </svg>
-        <span className="absolute inset-0 overflow-hidden" style={{ width: `${Math.max(0, Math.min(1, fillPercent)) * 100}%` }}>
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 13 13"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden
-          >
-            {Filled}
-          </svg>
-        </span>
-      </span>
+      <svg
+        viewBox="0 0 24 23"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        style={className ? undefined : { width: size, height: size }}
+        aria-hidden
+      >
+        <defs>
+          <clipPath id={clipId}>
+            <rect x="0" y="0" width={`${percent}%`} height="100%" />
+          </clipPath>
+        </defs>
+        {/* Outline - full star */}
+        <path d={starPath} stroke="#F8BB1C" fill="none" />
+        {/* Filled portion - clipped */}
+        <g clipPath={`url(#${clipId})`}>
+          <path d={starPath} fill="#F8BB1C" />
+        </g>
+      </svg>
     );
   }
 
+  // Full or empty star
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 13 13"
+      viewBox="0 0 24 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={className ? undefined : { width: size, height: size }}
     >
-      {filled ? Filled : Outline}
+      <path d={starPath} stroke="#F8BB1C" fill={filled ? "#F8BB1C" : "none"} />
     </svg>
   );
 }
@@ -81,9 +67,23 @@ function StarSvg({ filled, fillPercent, size = 24, className = "" }: { filled?: 
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center gap-[2px]">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <StarSvg key={star} filled={star <= Math.floor(rating)} size={12} className="w-3 h-3 md:w-6 md:h-6" />
-      ))}
+      {[1, 2, 3, 4, 5].map((star) => {
+        const whole = Math.floor(rating);
+        const frac = Math.max(0, Math.min(1, rating - whole));
+        if (star <= whole) {
+          return (
+            <StarSvg key={star} filled className="w-3 h-3 md:w-6 md:h-6" />
+          );
+        }
+        if (star === whole + 1 && frac > 0) {
+          return (
+            <StarSvg key={star} fillPercent={frac} className="w-3 h-3 md:w-6 md:h-6" />
+          );
+        }
+        return (
+          <StarSvg key={star} filled={false} className="w-3 h-3 md:w-6 md:h-6" />
+        );
+      })}
     </div>
   );
 }
@@ -322,23 +322,18 @@ export function ReviewsSection() {
                   {t.reviews.ratingLabel}
                 </p>
                 <div className="flex items-center gap-[2px] md:gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => {
-                    const whole = Math.floor(currentRating);
-                    const frac = Math.max(0, Math.min(1, currentRating - whole));
-                    if (star <= whole) {
-                      return (
-                        <StarSvg key={star} filled size={15} className="w-[15px] h-[15px] md:w-6 md:h-6" />
-                      );
-                    }
-                    if (star === whole + 1 && frac > 0) {
-                      return (
-                        <StarSvg key={star} fillPercent={frac} size={15} className="w-[15px] h-[15px] md:w-6 md:h-6" />
-                      );
-                    }
-                    return (
-                      <StarSvg key={star} filled={false} size={15} className="w-[15px] h-[15px] md:w-6 md:h-6" />
-                    );
-                  })}
+                  {[1, 2, 3, 4].map((star) => (
+                    <StarSvg key={star} filled size={15} className="w-[15px] h-[15px] md:w-6 md:h-6" />
+                  ))}
+                  {/* Частково заповнена зірка для рейтингу 4.9 */}
+                  <Image
+                    key={5}
+                    src="/icons/star.svg"
+                    alt="Star"
+                    width={24}
+                    height={23}
+                    className="w-[15px] h-[15px] md:w-6 md:h-6"
+                  />
                 </div>
               </div>
 
